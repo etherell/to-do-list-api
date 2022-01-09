@@ -1,0 +1,84 @@
+version: 2.1
+
+executors:
+  default:
+    description: The official CircleCI Ruby Docker image
+    docker:
+      - image: circleci/ruby:2.7.2-node
+          environment:
+            RAILS_ENV: test
+            BUNDLE_JOBS: 4
+            BUNDLE_RETRY: 3
+            BUNDLE_PATH: vendor/bundle
+            POSTGRES_USER: et
+            POSTGRES_HOST_AUTH_METHOD: trust
+    working_directory: ~/to_do_list_api
+
+jobs:
+  checkout:
+    executor: default
+    steps:
+      - checkout
+      - persist_to_workspace:
+          root: ~/to_do_list_api
+          paths:
+            - .
+
+  bundle:
+    executor: default
+    steps:
+      - attach_workspace:
+          at: ~/to_do_list_api
+      - restore_cache:
+          keys:
+            - to_do_list_api-{{ checksum "Gemfile.lock" }}
+            - to_do_list_api-
+      - run: gem i bundler -v $(tail -1 Gemfile.lock | tr -d ' ')
+      - run: sudo apt-get --allow-releaseinfo-change-suite update
+      - run: sudo apt-get install cmake
+      - run: bundle install --local --path=vendor/cache
+      - save_cache:
+          key: to_do_list_api-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - persist_to_workspace:
+          root: ~/to_do_list_api
+          paths:
+            - vendor/bundle
+
+  lefthook:
+    executor: default
+    steps:
+      - attach_workspace:
+          at: ~/to_do_list_api
+      - run: |
+          bundle exec lefthook run all
+
+  rspec:
+    executor: default
+    docker:
+      - image: circleci/ruby:2.7.2-node-browsers
+      - image: circleci/postgres:11.3-alpine
+          environment:
+            POSTGRES_USER: et
+            POSTGRES_HOST_AUTH_METHOD: trust
+    steps:
+      - attach_workspace:
+          at: ~/to_do_list_api
+      - run: bundle exec rake db:create --trace
+      - run: bundle exec rspec
+
+workflows:
+  version: 2
+  default: &default
+    jobs:
+      - checkout
+      - bundle:
+          requires:
+            - checkout
+      - rspec:
+          requires:
+            - bundle
+      - lefthook:
+          requires:
+            - bundle
