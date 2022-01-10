@@ -64,7 +64,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
     bcrypt (3.1.16)
-    bootsnap (1.9.3)
+    bootsnap (1.9.4)
       msgpack (~> 1.0)
     brakeman (5.2.0)
     builder (3.2.4)
@@ -101,10 +101,10 @@ GEM
       representable (>= 2.4.0, <= 3.1.0)
       uber (< 0.2.0)
     docile (1.4.0)
-    dry-configurable (0.13.0)
+    dry-configurable (0.12.1)
       concurrent-ruby (~> 1.0)
-      dry-core (~> 0.6)
-    dry-container (0.7.2)
+      dry-core (~> 0.5, >= 0.5.0)
+    dry-container (0.8.0)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.1, >= 0.1.3)
     dry-core (0.7.1)
@@ -140,7 +140,7 @@ GEM
       colorize (~> 0.7)
       ruby_parser (>= 3.14.1)
     ffaker (2.20.0)
-    ffi (1.15.4)
+    ffi (1.15.5)
     fuubar (2.5.1)
       rspec-core (~> 3.0)
       ruby-progressbar (~> 1.4)
@@ -191,15 +191,11 @@ GEM
     marcel (1.0.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.7.1)
     minitest (5.15.0)
     mock_redis (0.27.3)
       ruby2_keywords
     msgpack (1.4.2)
     nio4r (2.5.8)
-    nokogiri (1.13.0)
-      mini_portile2 (~> 2.7.0)
-      racc (~> 1.4)
     nokogiri (1.13.0-x86_64-linux)
       racc (~> 1.4)
     oj (3.13.11)
@@ -264,7 +260,7 @@ GEM
       method_source
       rake (>= 0.13)
       thor (~> 1.0)
-    rainbow (3.0.0)
+    rainbow (3.1.1)
     rake (13.0.6)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
@@ -419,7 +415,6 @@ GEM
     zeitwerk (2.5.3)
 
 PLATFORMS
-  ruby
   x86_64-linux
 
 DEPENDENCIES
@@ -430,7 +425,7 @@ DEPENDENCIES
   bundle-audit (~> 0.1.0)
   carmen (~> 1.1)
   dip (~> 6.1)
-  dry-container (~> 0.7.2)
+  dry-configurable (= 0.12.1)
   dry-validation (= 0.11.1)
   factory_bot_rails (~> 6.1)
   fasterer (~> 0.9.0)

@@ -5,13 +5,11 @@ executors:
     description: The official CircleCI Ruby Docker image
     docker:
       - image: circleci/ruby:2.7.2-node
-          environment:
-            RAILS_ENV: test
-            BUNDLE_JOBS: 4
-            BUNDLE_RETRY: 3
-            BUNDLE_PATH: vendor/bundle
-            POSTGRES_USER: et
-            POSTGRES_HOST_AUTH_METHOD: trust
+    environment:
+      - RAILS_ENV: test
+      - BUNDLE_JOBS: 4
+      - BUNDLE_RETRY: 3
+      - BUNDLE_PATH: vendor/bundle
     working_directory: ~/to_do_list_api
 
 jobs:
@@ -36,7 +34,9 @@ jobs:
       - run: gem i bundler -v $(tail -1 Gemfile.lock | tr -d ' ')
       - run: sudo apt-get --allow-releaseinfo-change-suite update
       - run: sudo apt-get install cmake
-      - run: bundle install --local --path=vendor/cache
+      - run: |
+          bundle config set path 'vendor/bundle'
+          bundle install && bundle clean
       - save_cache:
           key: to_do_list_api-{{ checksum "Gemfile.lock" }}
           paths:
@@ -53,15 +53,14 @@ jobs:
           at: ~/to_do_list_api
       - run: |
           bundle exec lefthook run all
-
   rspec:
     executor: default
     docker:
       - image: circleci/ruby:2.7.2-node-browsers
-      - image: circleci/postgres:11.3-alpine
-          environment:
-            POSTGRES_USER: et
-            POSTGRES_HOST_AUTH_METHOD: trust
+      - image: circleci/postgres:11-alpine-ram
+      - image: redis
+        environment:
+          - POSTGRES_USER: et
     steps:
       - attach_workspace:
           at: ~/to_do_list_api

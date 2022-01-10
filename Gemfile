@@ -13,7 +13,7 @@ gem 'rails', '~> 6.1.4.1'
 gem 'sidekiq', '~> 6.1'
 
 # Trailblazer bundle
-gem 'dry-container', '~> 0.7.2'
+gem 'dry-configurable', '0.12.1'
 gem 'dry-validation', '0.11.1'
 gem 'reform', '~> 2.2.0', '>= 2.2.4'
 gem 'simple_endpoint', '~> 1.0.0'
