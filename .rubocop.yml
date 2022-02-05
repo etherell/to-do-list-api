@@ -18,6 +18,7 @@ AllCops:
     - node_modules/**/*
     - spec/rails_helper.rb
     - spec/swagger_helper.rb
+    - lib/macro/schema.rb
 
 Rails/SkipsModelValidations:
   AllowedMethods: ['update_all', 'increment!']
@@ -67,10 +68,6 @@ Metrics/MethodLength:
 Lint/UnusedMethodArgument:
   Exclude:
     - lib/active_admin/pundit_adapter.rb
-
-Lint/MissingSuper:
-  Exclude:
-    - lib/macro/schema.rb
 
 Metrics/BlockLength:
   ExcludedMethods: ['describe', 'context', 'shared_examples']

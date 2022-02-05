@@ -10,7 +10,7 @@ gem 'carmen', '~> 1.1'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.4.1'
-gem 'sidekiq', '~> 6.1'
+gem 'sidekiq', '~> 6.4.0'
 
 # Trailblazer bundle
 gem 'dry-configurable', '0.12.1'
@@ -44,7 +44,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.9'
 
   # Code quality
-  gem 'brakeman', '~> 5.2.0', require: false
+  gem 'brakeman', '~> 5.2.1', require: false
   gem 'bundle-audit', '~> 0.1.0', require: false
   gem 'fasterer', '~> 0.9.0', require: false
   gem 'i18n-tasks', '~> 0.9.34', require: false
