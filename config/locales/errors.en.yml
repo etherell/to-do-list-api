@@ -1,0 +1,20 @@
+---
+en:
+  errors:
+    session:
+      wrong_credentials: Invalid username or password
+    rules:
+       user:
+        rules:
+          username:
+            filled?: The field is required.
+            size?: Username size must be within %{size_left} - %{size_right}
+            username_unique?: This login is already registered. Please, log in.
+          password:
+            filled?: The field is required.
+            format?: Password does not meet minimal requirements.
+                     The length should be 8 characters, alphanumeric.
+          password_confirmation:
+            filled?: The field is required.
+            eql?: Password and Confirm password fields does not match.
+

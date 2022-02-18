@@ -1,0 +1,19 @@
+{
+  "definitions": {},
+  "type": "object",
+  "title": "Basic errors",
+  "required": ["errors"],
+  "properties": {
+    "errors": {
+      "type": "object",
+      "properties": {
+        "field": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
