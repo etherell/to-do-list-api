@@ -8,4 +8,8 @@ class Api::V1::ProjectsController < AuthorizedApiController
   def update
     endpoint operation: Api::V1::Project::Operation::Update
   end
+
+  def destroy
+    endpoint operation: Api::V1::Project::Operation::Destroy
+  end
 end
