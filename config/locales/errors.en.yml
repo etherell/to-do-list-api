@@ -4,7 +4,7 @@ en:
     session:
       wrong_credentials: Invalid username or password
     rules:
-       user:
+      user:
         rules:
           username:
             filled?: The field is required.
@@ -17,4 +17,9 @@ en:
           password_confirmation:
             filled?: The field is required.
             eql?: Password and Confirm password fields does not match.
+      project:
+        rules:
+          title:
+            filled?: Title is required.
+            size?: Title size must be within %{size_left} - %{size_right}
 

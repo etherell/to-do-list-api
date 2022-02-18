@@ -6,5 +6,6 @@ module Constants
     USERNAME_SIZE_RANGE = 3..50
     PASSWORD_REGEXP = /^[A-Za-z0-9]{8}$/.freeze
     PASSWORD_SIZE = 8
+    PROJECT_TITLE_SIZE_RANGE = 3..75
   end
 end
