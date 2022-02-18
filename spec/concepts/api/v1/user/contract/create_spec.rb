@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Api::V1::User::Contract::Create, focus: true do
+RSpec.describe Api::V1::User::Contract::Create do
   let(:contract) { described_class.new(User.new) }
   let(:user_attributes) { attributes_for(:user) }
 
@@ -29,14 +29,14 @@ RSpec.describe Api::V1::User::Contract::Create, focus: true do
             {
               username: [find_errors('user', 'username', 'filled?')],
               password: [find_errors('user', 'password', 'filled?')],
-              password_confirmation: [find_errors('user', 'password_confirmation', 'filled?')],
+              password_confirmation: [find_errors('user', 'password_confirmation', 'filled?')]
             }
           end
 
           include_examples 'has validation errors'
         end
 
-        describe "username size" do
+        describe 'username size' do
           let(:params) { user_attributes.merge(username) }
           let(:username_translate_params) do
             {

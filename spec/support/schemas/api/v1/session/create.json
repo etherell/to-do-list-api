@@ -1,0 +1,33 @@
+{
+  "definitions": {},
+  "type": "object",
+  "required": ["data", "meta"],
+  "properties": {
+    "data": {
+      "type": "object",
+      "required": ["id", "type", "attributes"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "attributes": {
+          "type": "object",
+          "required": ["username"],
+          "properties": {
+            "username": { "type": "string" }
+          }
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "required": ["csrf", "access", "access_expires_at", "refresh", "refresh_expires_at"],
+      "properties": {
+        "csrf": { "type": "string" },
+        "access": { "type": "string" },
+        "access_expires_at": { "type": "string" },
+        "refresh": { "type": "string" },
+        "refresh_expires_at": { "type": "string" }
+      }
+    }
+  }
+}

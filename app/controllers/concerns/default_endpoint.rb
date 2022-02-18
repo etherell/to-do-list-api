@@ -10,6 +10,7 @@ module DefaultEndpoint
       invalid: ->(result) { result.failure? && find_contract(result)&.errors.present? },
       destroyed: ->(result) { result.success? && result[:semantic_success] == :destroyed },
       accepted: ->(result) { result.success? && result[:semantic_success] == :accepted },
+      found: ->(result) { result.success? && result[:semantic_success] == :found },
       ok: ->(result) { result.success? && result[:semantic_success] == :ok },
       success: ->(result) { result.success? }
     }
@@ -24,6 +25,7 @@ module DefaultEndpoint
       success: ->(result) { render_success_response(result, :no_content) },
       destroyed: ->(result) { render_success_response(result, :no_content) },
       accepted: ->(result) { render_success_response(result, :accepted) },
+      found: ->(result) { result.success? && result[:semantic_success] == :found },
       ok: ->(result) { render_success_response(result, :ok) },
       not_found: ->(result) { render_invalid_or_head(result, :not_found) }
     }
