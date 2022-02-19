@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Api::V1::Task::Contract
-  class Save < ApplicationContract
+  class Create < ApplicationContract
     property :description
     property :deadline
 

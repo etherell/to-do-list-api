@@ -1,0 +1,25 @@
+{
+  "definitions": {},
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "type": "object",
+      "required": ["id", "type", "attributes"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "attributes": {
+          "type": "object",
+          "required": ["description", "position", "is_done", "deadline"],
+          "properties": {
+            "description": { "type": "string" },
+            "position": { "type": "integer" },
+            "is_done": { "type": "boolean" },
+            "deadline": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

@@ -30,3 +30,9 @@ en:
           deadline:
             filled?: Deadline is required
             date_time?: Deadline should have DateTime format
+          is_done:
+            filled?: Task status is required
+            bool?: Status shoul be boolean
+          position:
+            filled?: Position is required
+            int?: Position should be a number
