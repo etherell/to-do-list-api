@@ -11,9 +11,12 @@
         "type": { "type": "string" },
         "attributes": {
           "type": "object",
-          "required": ["description"],
+          "required": ["description", "position", "is_done", "deadline"],
           "properties": {
-            "description": { "type": "string" }
+            "description": { "type": "string" },
+            "position": { "type": "integer" },
+            "is_done": { "type": "boolean" },
+            "deadline": { "type": "string" }
           }
         }
       }

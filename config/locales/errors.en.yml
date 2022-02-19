@@ -27,3 +27,6 @@ en:
           description:
             filled?: Description is required.
             size?: Description size must be within %{size_left} - %{size_right}
+          deadline:
+            filled?: Deadline is required
+            date_time?: Deadline should have DateTime format
