@@ -8,4 +8,8 @@ class Api::V1::TasksController < AuthorizedApiController
   def update
     endpoint operation: Api::V1::Task::Operation::Update
   end
+
+  def destroy
+    endpoint operation: Api::V1::Task::Operation::Destroy
+  end
 end

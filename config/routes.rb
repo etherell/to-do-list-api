@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       resource :user, only: %i[create]
       resource :session, only: %i[create destroy]
       resources :projects, only: %i[create update destroy] do
-        resources :tasks, only: %i[create update]
+        resources :tasks, only: %i[create update destroy]
       end
     end
   end
