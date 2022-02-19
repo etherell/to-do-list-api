@@ -13,7 +13,7 @@ RSpec.describe 'Api::V1::Comments', type: :request do
 
   path '/api/v1/tasks/{task_id}/comments' do
     post 'Creates comment' do
-      tags 'Coments'
+      tags 'Comments'
       consumes 'application/json'
       security [Bearer: {}]
       parameter name: :Authorization, in: :header, type: :string
@@ -89,6 +89,46 @@ RSpec.describe 'Api::V1::Comments', type: :request do
         run_test! do
           expect(response).to be_unprocessable
           expect(response).to match_json_schema('api/v1/errors')
+        end
+      end
+    end
+  end
+
+  path '/api/v1/comments/{id}' do
+    delete 'Deletes comment' do
+      tags 'Comments'
+      consumes 'application/json'
+      security [Bearer: {}]
+      parameter name: :Authorization, in: :header, type: :string
+      parameter name: :id, in: :path, type: :string, description: 'Comment id'
+
+      response '204', 'Comment deleted' do
+        let(:Authorization) { create_token(entity: user, token_type: :access) }
+        let(:user) { comment.task.project.user }
+        let(:comment) { create(:comment) }
+        let(:id) { comment.id }
+
+        run_test! do
+          expect(response).to be_no_content
+        end
+      end
+
+      response '401', 'Unauthorized' do
+        let(:Authorization) { nil }
+        let(:id) { SecureRandom.uuid }
+
+        run_test! do
+          expect(response).to be_unauthorized
+        end
+      end
+
+      response '404', 'Comment not found' do
+        let(:Authorization) { create_token(entity: user, token_type: :access) }
+        let(:user) { create(:user) }
+        let(:id) { SecureRandom.uuid }
+
+        run_test! do
+          expect(response).to be_not_found
         end
       end
     end

@@ -179,7 +179,6 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
       response '401', 'Unauthorized' do
         let(:Authorization) { nil }
         let(:id) { SecureRandom.uuid }
-        let(:params) { { project: {} } }
 
         run_test! do
           expect(response).to be_unauthorized
