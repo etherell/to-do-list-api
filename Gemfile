@@ -26,6 +26,9 @@ gem 'oj', '~> 3.11'
 # Pagination
 gem 'pagy', '~> 3.11'
 
+# Uploading
+gem 'carrierwave', '~> 2.0'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

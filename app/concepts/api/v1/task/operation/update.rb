@@ -3,7 +3,6 @@
 module Api::V1::Task::Operation
   class Update < ApplicationOperation
     step Subprocess(Api::V1::Lib::Operation::AssignUser), fast_track: true
-    step :set_project
     step :set_model
     fail Macro::Semantic(failure: :not_found)
     pass Macro::PrepareParams(main_key: :task)
@@ -13,12 +12,8 @@ module Api::V1::Task::Operation
     pass :set_serializer
     pass Macro::Semantic(success: :ok)
 
-    def set_project(ctx, current_user:, params:, **)
-      ctx[:project] = current_user.projects.find_by(id: params[:project_id])
-    end
-
-    def set_model(ctx, project:, params:, **)
-      ctx[:model] = project.tasks.find_by(id: params[:id])
+    def set_model(ctx, current_user:, params:, **)
+      ctx[:model] = current_user.tasks.find_by(id: params[:id])
     end
 
     def set_serializer(ctx, model:, **)
