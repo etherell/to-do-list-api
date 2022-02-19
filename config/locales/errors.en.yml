@@ -22,4 +22,8 @@ en:
           title:
             filled?: Title is required.
             size?: Title size must be within %{size_left} - %{size_right}
-
+      task:
+        rules:
+          description:
+            filled?: Description is required.
+            size?: Description size must be within %{size_left} - %{size_right}
