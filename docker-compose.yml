@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+  redis:
+    image: redis
+  web:
+    image: to-do-list-api
+    command: bash -c "rails db:create db:migrate && puma"
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgres://postgres@db
+      REDIS_URL: redis://redis:6379/0
+    depends_on:
+      - db
+      - redis
+
