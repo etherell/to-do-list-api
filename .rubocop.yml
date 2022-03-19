@@ -1,0 +1,123 @@
+require:
+   - rubocop-performance
+   - rubocop-rspec
+   - rubocop-rails
+
+Style/Documentation:
+  Enabled: false
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 2.7.3
+  Exclude:
+    - vendor/bundle/**/*
+    - vendor/**/*
+    - bin/*
+    - db/**/*
+    - config/**/*
+    - node_modules/**/*
+    - spec/rails_helper.rb
+    - spec/swagger_helper.rb
+
+Rails/SkipsModelValidations:
+  AllowedMethods: ['update_all', 'increment!']
+
+Layout/LineLength:
+  Max: 120
+
+Naming/MethodName:
+  Exclude:
+    - lib/macro/**/*
+
+Lint/UnreachableCode:
+  Exclude:
+    - app/concepts/**/*
+
+Style/SignalException:
+  Exclude:
+    - app/concepts/**/*
+
+Style/RescueModifier:
+  Exclude:
+    - app/concepts/api/v1/lib/service/confirmation_token.rb
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - app/concepts/**/*
+    - app/controllers/**/*
+
+Lint/ConstantDefinitionInBlock:
+  Exclude:
+    - spec/lib/macro/schema_spec.rb
+
+RSpec/MessageSpies:
+  EnforcedStyle: receive
+  Exclude:
+    - spec/features/**/*
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 20
+
+Metrics/MethodLength:
+  Exclude:
+    - lib/macro/**/*
+    - lib/active_admin/*
+    - app/controllers/concerns/default_endpoint.rb
+
+Lint/UnusedMethodArgument:
+  Exclude:
+    - lib/active_admin/pundit_adapter.rb
+
+Lint/MissingSuper:
+  Exclude:
+    - lib/macro/schema.rb
+
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context', 'shared_examples']
+  Exclude:
+    - spec/requests/api/v1/**/*
+    - app/admin/**/*
+    - spec/factories/*
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - app/controllers/concerns/default_endpoint.rb
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - app/controllers/concerns/default_endpoint.rb
+
+Metrics/AbcSize:
+  Exclude:
+    - app/controllers/concerns/default_endpoint.rb
+    - app/admin/*.rb
+
+RSpec/MultipleExpectations:
+  Max: 15
+
+RSpec/ExampleLength:
+  Max: 15
+  Exclude:
+    - spec/features/**/*
+
+RSpec/NestedGroups:
+  Max: 7
+
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - spec/requests/api/v1/**/*
+
+RSpec/LeakyConstantDeclaration:
+  Exclude:
+    - spec/lib/macro/schema_spec.rb
+
+RSpec/VariableName:
+  Exclude:
+    - spec/requests/api/v1/**/*
+
+RSpec/ScatteredSetup:
+  Exclude:
+    - spec/requests/api/v1/**/*
+
+RSpec/LetSetup:
+  Enabled: false

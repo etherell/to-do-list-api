@@ -1,48 +1,79 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.3"
+ruby(File.read(File.join(File.dirname(__FILE__), '.ruby-version')).strip)
 
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.1"
+# System
+gem 'carmen', '~> 1.1'
+gem 'pg', '~> 1.1'
+gem 'puma', '~> 5.0'
+gem 'rails', '~> 6.1.4.1'
+gem 'sidekiq', '~> 6.1'
 
-# Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+# Trailblazer bundle
+gem 'dry-configurable', '0.12.1'
+gem 'dry-validation', '0.11.1'
+gem 'reform', '~> 2.2.0', '>= 2.2.4'
+gem 'simple_endpoint', '~> 1.0.0'
+gem 'trailblazer', '~> 2.1'
 
-# Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 5.0"
+# JSON:API Serializer
+gem 'jsonapi-serializer', '~> 2.1'
+gem 'oj', '~> 3.11'
 
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
-# gem "jbuilder"
-
-# Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
-
-# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
-# gem "kredis"
-
-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+# Pagination
+gem 'pagy', '~> 3.11'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
+gem 'bootsnap', '>= 1.4.4', require: false
 
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+# Authentication
+gem 'bcrypt', '~> 3.1'
+gem 'jwt_sessions', '~> 2.5'
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem "rack-cors"
+# Api doc
+gem 'rspec-rails', '~> 4.0'
+gem 'rswag', '~> 2.4.0'
 
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'bullet', '~> 6.1'
+  gem 'factory_bot_rails', '~> 6.1'
+  gem 'ffaker', '~> 2.18'
+  gem 'pry-byebug', '~> 3.9'
+
+  # Code quality
+  gem 'brakeman', '~> 5.2.0', require: false
+  gem 'bundle-audit', '~> 0.1.0', require: false
+  gem 'fasterer', '~> 0.9.0', require: false
+  gem 'i18n-tasks', '~> 0.9.34', require: false
+  gem 'lefthook', '~> 0.7.2', require: false
+  gem 'rails_best_practices', '~> 1.20', require: false
+  gem 'rubocop', '~> 0.93.1', require: false
+  gem 'rubocop-performance', '~> 1.10', require: false
+  gem 'rubocop-rails', '~> 2.9', require: false
+  gem 'rubocop-rspec', '~> 1.43', require: false
 end
 
 group :development do
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+  gem 'dip', '~> 6.1'
+  gem 'letter_opener', '~> 1.7'
+  gem 'listen', '~> 3.4'
+  gem 'spring', '~> 2.1'
+  gem 'spring-watcher-listen', '~> 2.0', '>= 2.0.1'
 end
 
+group :test do
+  gem 'fuubar', '~> 2.5.1'
+  gem 'json_matchers', '~> 0.11.1', require: 'json_matchers/rspec'
+  gem 'mock_redis', '~> 0.27.3'
+  gem 'pundit-matchers', '~> 1.7.0'
+  gem 'rails-controller-testing', '~> 1.0'
+  gem 'rspec-sidekiq', '~> 3.1'
+  gem 'shoulda-matchers', '~> 4.5'
+  gem 'simplecov', '~> 0.21.2', require: false
+  gem 'simplecov-lcov', '~> 0.8.0', require: false
+  gem 'undercover', '~> 0.4.0', require: false
+  gem 'webdrivers', '~> 4.6', require: false
+end
