@@ -8,7 +8,7 @@ paths:
     post:
       summary: Creates comment
       tags:
-      - Coments
+      - Comments
       security:
       - Bearer: {}
       parameters:
@@ -29,10 +29,11 @@ paths:
             application/json:
               example:
                 data:
-                  id: 647020fd-3f6f-434b-aeaf-85c325d4f8e0
+                  id: 94c1023f-1e07-4725-92b9-d4553399a996
                   type: comment
                   attributes:
-                    text: Beatae corrupti repudiandae omnis cum.
+                    text: Quasi illum facilis perspiciatis ea voluptatibus necessitatibus
+                      nostrum.
                     image_url: 
         '401':
           description: Unauthorized
@@ -61,8 +62,32 @@ paths:
                   properties:
                     description:
                       type: string
-                      example: Odio modi incidunt sit quo excepturi distinctio doloremque
-                        laboriosam.
+                      example: Vero ipsam ratione labore nihil.
+  "/api/v1/comments/{id}":
+    delete:
+      summary: Deletes comment
+      tags:
+      - Comments
+      security:
+      - Bearer: {}
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: Comment id
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Comment deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Comment not found
   "/api/v1/projects":
     post:
       summary: Creates Project
@@ -82,10 +107,11 @@ paths:
             application/json:
               example:
                 data:
-                  id: 3e351b45-14e1-4e16-a739-6f722d7f5539
+                  id: 357ea3f0-f573-4d11-9de8-163ab7be69c3
                   type: project
                   attributes:
-                    title: Soluta placeat debitis adipisci aut earum provident tenetur.
+                    title: Occaecati possimus exercitationem maxime aliquam quis id
+                      fugiat.
         '401':
           description: Unauthorized
         '422':
@@ -111,8 +137,7 @@ paths:
                   properties:
                     title:
                       type: string
-                      example: Quam itaque pariatur repellendus sequi consequatur
-                        incidunt praesentium.
+                      example: Quis repudiandae nam provident odit fugiat itaque impedit.
   "/api/v1/projects/{id}":
     patch:
       summary: Updates Project
@@ -138,10 +163,10 @@ paths:
             application/json:
               example:
                 data:
-                  id: 062ad090-c228-40db-824c-c83d667f85e5
+                  id: 03de3137-fd55-4d83-82da-89255affc280
                   type: project
                   attributes:
-                    title: Quis recusandae dolorum beatae veritatis provident iste.
+                    title: Quis molestiae expedita nulla cupiditate.
         '401':
           description: Unauthorized
         '422':
@@ -169,7 +194,8 @@ paths:
                   properties:
                     title:
                       type: string
-                      example: Suscipit nemo unde facere tenetur.
+                      example: Libero aperiam perferendis laudantium amet dolorum
+                        eum sint.
     delete:
       summary: Deletes Project
       tags:
@@ -207,16 +233,16 @@ paths:
             application/json:
               example:
                 data:
-                  id: 13d1d2d2-9929-4beb-9fcc-76c074e47527
+                  id: 57401b82-6159-484f-82e4-8a30e6517674
                   type: user_account
                   attributes:
-                    username: giuseppe_johansson asahansen
+                    username: fe chia
                 meta:
-                  csrf: LbBh/MIaejURyVSjBCjJpXLAYwNqH39zjLhJbYIGrC4NWV4dWvrO/54QFDBYwOzSzXbX/V36KdsRrtovXkblJw==
-                  access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUzMDc0MTksInVzZXJfaWQiOiIxM2QxZDJkMi05OTI5LTRiZWItOWZjYy03NmMwNzRlNDc1MjciLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi0xM2QxZDJkMi05OTI5LTRiZWItOWZjYy03NmMwNzRlNDc1MjciLCJ1aWQiOiIxMzQwM2NjNC00MWQ2LTQ0NTktYjczNC05NTg4ODJiNTQwMDcifQ.4_U1hKKChcpZ69UN9awDx_vPgfy4PwL4wy3AYcHMrY8
-                  access_expires_at: '2022-02-19T23:50:19.000+02:00'
-                  refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUzNDcwMTksInVzZXJfaWQiOiIxM2QxZDJkMi05OTI5LTRiZWItOWZjYy03NmMwNzRlNDc1MjciLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi0xM2QxZDJkMi05OTI5LTRiZWItOWZjYy03NmMwNzRlNDc1MjciLCJ1aWQiOiJkZmM2OGQ2Zi1iYjU5LTRjZjktYThjNS1iNjI4OWFmZDk0ODgifQ.V34TIBQWkQnrUyXm3cWSz6mBwvWOzm7mxYfFq89l0VE
-                  refresh_expires_at: '2022-02-20T10:50:19.000+02:00'
+                  csrf: L2ITvh0obADs9aTdwdCMDK/sDlAXrSEYbx5fOquAgBxwQ93j2nt7Dq/2LQdtvBD2c3HU8xH14BRxg3Fyd14tLw==
+                  access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUzMDkwNzcsInVzZXJfaWQiOiI1NzQwMWI4Mi02MTU5LTQ4NGYtODJlNC04YTMwZTY1MTc2NzQiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi01NzQwMWI4Mi02MTU5LTQ4NGYtODJlNC04YTMwZTY1MTc2NzQiLCJ1aWQiOiI5OTNkMGI2NS04NTc3LTQyN2MtYWQyNS1iMTgzMDI4OThmYjkifQ.EuX64sT-EA_PDPaEdAt3NxMItj0qgZmFFDcP2sDji24
+                  access_expires_at: '2022-02-20T00:17:57.000+02:00'
+                  refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUzNDg2NzcsInVzZXJfaWQiOiI1NzQwMWI4Mi02MTU5LTQ4NGYtODJlNC04YTMwZTY1MTc2NzQiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi01NzQwMWI4Mi02MTU5LTQ4NGYtODJlNC04YTMwZTY1MTc2NzQiLCJ1aWQiOiJmNTJmNTc4NC01NWI0LTRjNDYtYTk3NS00NDc2MGZjOGIzOWQifQ.DwTbpVXu92mOB4C4IjmlMGcwUM7xdbTTEotpgBYbEf4
+                  refresh_expires_at: '2022-02-20T11:17:57.000+02:00'
         '422':
           description: Invalid params
           content:
@@ -246,10 +272,10 @@ paths:
               properties:
                 username:
                   type: string
-                  example: katia
+                  example: berry_plsson
                 password:
                   type: string
-                  example: Wtf6WGI6
+                  example: rHlnM41k
     delete:
       summary: Destroys Session
       tags:
@@ -290,14 +316,13 @@ paths:
             application/json:
               example:
                 data:
-                  id: ba0d919b-4ede-4706-a09f-e584921b5619
+                  id: 97fa4622-1cc9-44d1-b6d8-80285b5f196d
                   type: task
                   attributes:
-                    description: Vel eius quibusdam dignissimos ut ea inventore eaque
-                      maxime.
+                    description: Possimus ut ipsa ratione facilis numquam.
                     position: 1
                     is_done: false
-                    deadline: '2022-02-19T20:50:19.198Z'
+                    deadline: '2022-02-19T21:17:57.406Z'
         '401':
           description: Unauthorized
         '404':
@@ -328,10 +353,11 @@ paths:
                   properties:
                     description:
                       type: string
-                      example: Laborum id minima accusamus nam consequatur sunt.
+                      example: Cupiditate minima reprehenderit corrupti explicabo
+                        quisquam adipisci.
                     deadline:
                       type: string
-                      example: '2022-02-19T22:50:18+02:00'
+                      example: '2022-02-19T23:17:56+02:00'
   "/api/v1/tasks/{id}":
     put:
       summary: Updates task
@@ -357,13 +383,14 @@ paths:
             application/json:
               example:
                 data:
-                  id: a7a0bf70-c433-41b3-8724-b636419c6ccf
+                  id: 2c6e25ce-a723-480b-9b9a-b913d5e62730
                   type: task
                   attributes:
-                    description: Aliquid inventore eaque porro magni deleniti numquam.
+                    description: Corporis voluptatum adipisci aliquid at quibusdam
+                      facilis excepturi.
                     position: 1
                     is_done: false
-                    deadline: '2022-02-19T20:50:19.299Z'
+                    deadline: '2022-02-19T21:17:57.518Z'
         '401':
           description: Unauthorized
         '404':
@@ -394,13 +421,14 @@ paths:
                   properties:
                     description:
                       type: string
-                      example: Consequatur explicabo iusto possimus aspernatur.
+                      example: Iure sequi optio eveniet exercitationem eos numquam
+                        dolore.
                     deadline:
                       type: string
-                      example: '2022-02-19T22:50:18+02:00'
+                      example: '2022-02-19T23:17:56+02:00'
                     position:
                       type: integer
-                      example: 7
+                      example: 9
                     is_done:
                       type: boolean
                       example: true
@@ -466,7 +494,7 @@ paths:
                   properties:
                     username:
                       type: string
-                      example: wilburnpettersson
+                      example: kortney
                     password:
                       type: string
                       example: Abc43Dea
