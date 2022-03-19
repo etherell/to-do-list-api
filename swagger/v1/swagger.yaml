@@ -23,10 +23,10 @@ paths:
             application/json:
               example:
                 data:
-                  id: 511a229a-11a9-426a-82d0-bbdcdfa62eb9
+                  id: a0b9420c-9640-4858-af70-16a1ea1b6f1c
                   type: project
                   attributes:
-                    title: Fugiat corrupti consequuntur maiores accusamus.
+                    title: Mollitia dolore et labore occaecati sunt delectus nobis.
         '401':
           description: Unauthorized
         '422':
@@ -52,7 +52,7 @@ paths:
                   properties:
                     title:
                       type: string
-                      example: Quasi pariatur omnis quam possimus veritatis odit occaecati.
+                      example: Quibusdam doloribus a autem ipsum quaerat tempore voluptate.
   "/api/v1/projects/{id}":
     patch:
       summary: Updates Project
@@ -78,10 +78,10 @@ paths:
             application/json:
               example:
                 data:
-                  id: 7fae3e42-da1c-411e-9da0-61271b4c9665
+                  id: 04abefcf-735d-4b6e-860f-a723af35aeb6
                   type: project
                   attributes:
-                    title: Cum blanditiis hic temporibus culpa perspiciatis.
+                    title: Blanditiis sapiente eligendi fuga ea.
         '401':
           description: Unauthorized
         '422':
@@ -109,8 +109,7 @@ paths:
                   properties:
                     title:
                       type: string
-                      example: Sint rem occaecati soluta placeat necessitatibus optio
-                        sequi libero.
+                      example: Tempora quidem quis impedit nisi alias dolorum.
     delete:
       summary: Deletes Project
       tags:
@@ -148,16 +147,16 @@ paths:
             application/json:
               example:
                 data:
-                  id: 751ec924-933d-48bc-87bc-bc1a316784af
+                  id: 6d007d30-8a04-4ea2-9bfa-e015e5542b14
                   type: user_account
                   attributes:
-                    username: mattheweriksson clarence_lind
+                    username: carole vaughn_viklund
                 meta:
-                  csrf: tULQe/EtZdvm7vHcwAoAIdz8d2jqH8hRqor8/5TRXOnT5OHU3boq8XCqV5l/Ybq0/b31UiMFa+oAanEy0OpYzw==
-                  access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUyNzI5MTksInVzZXJfaWQiOiI3NTFlYzkyNC05MzNkLTQ4YmMtODdiYy1iYzFhMzE2Nzg0YWYiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi03NTFlYzkyNC05MzNkLTQ4YmMtODdiYy1iYzFhMzE2Nzg0YWYiLCJ1aWQiOiIwMDFmMDBiZC1lNGRiLTQ1YmMtYjA2OC0yMzFkMDMwY2Q2YjEifQ.a6nNSYzumDvU2uN9lBiUZcm7mzNaZAIrqgaYFniS7o4
-                  access_expires_at: '2022-02-19T14:15:19.000+02:00'
-                  refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUzMTI1MTksInVzZXJfaWQiOiI3NTFlYzkyNC05MzNkLTQ4YmMtODdiYy1iYzFhMzE2Nzg0YWYiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi03NTFlYzkyNC05MzNkLTQ4YmMtODdiYy1iYzFhMzE2Nzg0YWYiLCJ1aWQiOiJhYTM1N2UxYy05YzRkLTRkNWMtOTA5ZC0zZTgxNjYzMTlmNzgifQ.476bC8m3aObY_c79-2aszSWOYc188dyFv-uQShBkWFo
-                  refresh_expires_at: '2022-02-20T01:15:19.000+02:00'
+                  csrf: 52OUs05L1PBAekx6iM3D0JyFg2aE2ILe1DxzFVU6/DrTsPtFjqSPpVIFlKyLUd1PQ0/uKG5Wr/G1YV5lnLafIg==
+                  access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUyNzY0NjMsInVzZXJfaWQiOiI2ZDAwN2QzMC04YTA0LTRlYTItOWJmYS1lMDE1ZTU1NDJiMTQiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi02ZDAwN2QzMC04YTA0LTRlYTItOWJmYS1lMDE1ZTU1NDJiMTQiLCJ1aWQiOiI0Njc3NDI5NC0xZDg3LTQ4NDEtODFmMC0wZmIyZWM2MzhlYjEifQ.PoJHZlwfHLa3w3RLnZWdmj4vllYXLre6w6TxRoooHc0
+                  access_expires_at: '2022-02-19T15:14:23.000+02:00'
+                  refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUzMTYwNjMsInVzZXJfaWQiOiI2ZDAwN2QzMC04YTA0LTRlYTItOWJmYS1lMDE1ZTU1NDJiMTQiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi02ZDAwN2QzMC04YTA0LTRlYTItOWJmYS1lMDE1ZTU1NDJiMTQiLCJ1aWQiOiI3NGI3ODVkZC1jMWViLTRjOTgtYjkzYy0wMjVhOGMyZTIwNGYifQ.3PVSgE_d_5kH8FuwBrHqv-2Ojq_5DrGMtHTY_BhfLGc
+                  refresh_expires_at: '2022-02-20T02:14:23.000+02:00'
         '422':
           description: Invalid params
           content:
@@ -187,10 +186,10 @@ paths:
               properties:
                 username:
                   type: string
-                  example: albertina
+                  example: barrett_olofsson
                 password:
                   type: string
-                  example: yAtSLKDq
+                  example: bGlMRRRG
     delete:
       summary: Destroys Session
       tags:
@@ -231,14 +230,13 @@ paths:
             application/json:
               example:
                 data:
-                  id: 34a0c28f-887d-44aa-ba07-960db54fbbcf
+                  id: 2081b7ac-2844-4b82-af95-5cc0e0a2cb3e
                   type: task
                   attributes:
-                    description: Consectetur veniam aut laborum blanditiis voluptas
-                      voluptate.
+                    description: Recusandae et porro veritatis alias suscipit nulla.
                     position: 1
                     is_done: false
-                    deadline: '2022-02-19T11:15:19.912Z'
+                    deadline: '2022-02-19T12:14:23.465Z'
         '401':
           description: Unauthorized
         '404':
@@ -269,10 +267,10 @@ paths:
                   properties:
                     description:
                       type: string
-                      example: Fuga asperiores perspiciatis quo illo.
+                      example: Nemo sunt delectus architecto dolore eligendi.
                     deadline:
                       type: string
-                      example: '2022-02-19T13:15:19+02:00'
+                      example: '2022-02-19T14:14:23+02:00'
   "/api/v1/projects/{project_id}/tasks/{id}":
     put:
       summary: Updates task
@@ -304,13 +302,14 @@ paths:
             application/json:
               example:
                 data:
-                  id: 3ffe267c-b8a6-441d-b30e-87a0bec321b2
+                  id: 366717c0-3505-4712-9fe9-8cb766e2398a
                   type: task
                   attributes:
-                    description: Similique dolorem esse nam quod quas voluptate.
+                    description: Eaque ad reiciendis distinctio recusandae blanditiis
+                      sit.
                     position: 1
                     is_done: false
-                    deadline: '2022-02-19T11:15:20.025Z'
+                    deadline: '2022-02-19T12:14:23.580Z'
         '401':
           description: Unauthorized
         '404':
@@ -341,16 +340,47 @@ paths:
                   properties:
                     description:
                       type: string
-                      example: Esse asperiores beatae a illum.
+                      example: Dolores temporibus cum optio reiciendis perferendis
+                        ad facilis minus.
                     deadline:
                       type: string
-                      example: '2022-02-19T13:15:19+02:00'
+                      example: '2022-02-19T14:14:23+02:00'
                     position:
                       type: integer
-                      example: 3
+                      example: 6
                     is_done:
                       type: boolean
                       example: true
+    delete:
+      summary: Deletes Task
+      tags:
+      - Tasks
+      security:
+      - Bearer: {}
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: project_id
+        in: path
+        description: Project id
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: Task id
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Task deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Task not found
   "/api/v1/user":
     post:
       summary: Creates User
@@ -389,7 +419,7 @@ paths:
                   properties:
                     username:
                       type: string
-                      example: porshakarol
+                      example: maida
                     password:
                       type: string
                       example: Abc43Dea

@@ -176,4 +176,50 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
       end
     end
   end
+
+  path '/api/v1/projects/{project_id}/tasks/{id}' do
+    delete 'Deletes Task' do
+      tags 'Tasks'
+      consumes 'application/json'
+      security [Bearer: {}]
+      parameter name: :Authorization, in: :header, type: :string
+      parameter name: :project_id, in: :path, type: :string, description: 'Project id'
+      parameter name: :id, in: :path, type: :string, description: 'Task id'
+
+      response '204', 'Task deleted' do
+        let(:Authorization) { create_token(entity: user, token_type: :access) }
+        let(:user) { create(:user) }
+        let(:project) { create(:project, user: user) }
+        let(:task) { create(:task, project: project) }
+        let(:project_id) { project.id }
+        let(:id) { task.id }
+
+        run_test! do
+          expect(response).to be_no_content
+        end
+      end
+
+      response '401', 'Unauthorized' do
+        let(:Authorization) { nil }
+        let(:project_id) { SecureRandom.uuid }
+        let(:id) { SecureRandom.uuid }
+        let(:params) { { project: {} } }
+
+        run_test! do
+          expect(response).to be_unauthorized
+        end
+      end
+
+      response '404', 'Task not found' do
+        let(:Authorization) { create_token(entity: user, token_type: :access) }
+        let(:user) { create(:user) }
+        let(:project_id) { SecureRandom.uuid }
+        let(:id) { SecureRandom.uuid }
+
+        run_test! do
+          expect(response).to be_not_found
+        end
+      end
+    end
+  end
 end
