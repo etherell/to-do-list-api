@@ -2,7 +2,7 @@
 
 module Api::V1::Task::Serializer
   class Show < ApplicationSerializer
-    attribute :description
+    attribute :description, :position, :is_done, :deadline
 
     set_type :task
   end

@@ -3,11 +3,13 @@
 module Api::V1::Task::Contract
   class Save < ApplicationContract
     property :description
+    property :deadline
 
     validation :default do
       configure { config.namespace = :task }
 
       required(:description).filled(:str?)
+      required(:deadline).filled(:date_time?)
     end
 
     validation :size, if: :default do

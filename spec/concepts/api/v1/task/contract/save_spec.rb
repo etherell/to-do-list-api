@@ -20,7 +20,22 @@ RSpec.describe Api::V1::Task::Contract::Save do
       context 'when all fields are empty' do
         let(:params) { {} }
         let(:errors) do
-          { description: [find_errors('task', 'description', 'filled?')] }
+          {
+            description: [find_errors('task', 'description', 'filled?')],
+            deadline: [find_errors('task', 'deadline', 'filled?')]
+          }
+        end
+
+        include_examples 'has validation errors'
+      end
+
+      context 'with wrong deadline format' do
+        let(:params) { task_attributes.merge(deadline) }
+        let(:deadline) do
+          { deadline: FFaker::Lorem.word }
+        end
+        let(:errors) do
+          { deadline: [find_errors('task', 'deadline', 'date_time?')] }
         end
 
         include_examples 'has validation errors'

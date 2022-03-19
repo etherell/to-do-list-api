@@ -24,9 +24,10 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
         properties: {
           task: {
             type: :object,
-            required: %w[description],
+            required: %w[description deadline],
             properties: {
-              description: { type: :string, example: FFaker::Lorem.unique.phrase }
+              description: { type: :string, example: FFaker::Lorem.unique.phrase },
+              deadline: { type: :string, example: DateTime.now.to_s }
             }
           }
         }

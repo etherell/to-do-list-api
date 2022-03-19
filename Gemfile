@@ -37,6 +37,9 @@ gem 'jwt_sessions', '~> 2.5'
 gem 'rspec-rails', '~> 4.0'
 gem 'rswag', '~> 2.4.0'
 
+# Sorting
+gem 'acts_as_list', '~> 1.0', '>= 1.0.4'
+
 group :development, :test do
   gem 'bullet', '~> 6.1'
   gem 'factory_bot_rails', '~> 6.1'
