@@ -1,0 +1,134 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/session":
+    post:
+      summary: Creates Session
+      tags:
+      - Sessions
+      parameters: []
+      responses:
+        '201':
+          description: Session is created
+          content:
+            application/json:
+              example:
+                data:
+                  id: 05c3e9be-0c6d-4b78-a6ed-29bf1a278423
+                  type: user_account
+                  attributes:
+                    username: irwin_jansson
+                meta:
+                  csrf: J6gTIGVWdWttgKUT0qDWdansWQlC7IUaM+3x/i6faDNj+MclYO1noJvJM8R7yNwsWvNyWxQIP/oxtk1LMNvXrg==
+                  access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUyMTAyNTIsInVzZXJfaWQiOiIwNWMzZTliZS0wYzZkLTRiNzgtYTZlZC0yOWJmMWEyNzg0MjMiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi0wNWMzZTliZS0wYzZkLTRiNzgtYTZlZC0yOWJmMWEyNzg0MjMiLCJ1aWQiOiJiYzc3Mzc0MS0yMmFmLTQyMDAtYmEwNC0zZmRhMDFmNGE5M2YifQ.PhuYRE5aEeXE7tPw64-SI78reUHExoDiDMZZf0qZk3w
+                  access_expires_at: '2022-02-18T20:50:52.000+02:00'
+                  refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUyNDk4NTIsInVzZXJfaWQiOiIwNWMzZTliZS0wYzZkLTRiNzgtYTZlZC0yOWJmMWEyNzg0MjMiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi0wNWMzZTliZS0wYzZkLTRiNzgtYTZlZC0yOWJmMWEyNzg0MjMiLCJ1aWQiOiI2MzBjZWUyNC1lMjMyLTQ3MzItYjFlYy1mOGFkOWU2YTNmYmQifQ.bFfCXVMamV1uVNFQ_4Hi9VZ83c1L4ZhZM2cZeNPCrOk
+                  refresh_expires_at: '2022-02-19T07:50:52.000+02:00'
+        '422':
+          description: Invalid params
+          content:
+            application/json:
+              example:
+                errors:
+                  username:
+                  - The field is required.
+                  password:
+                  - The field is required.
+        '401':
+          description: Invalid credentials
+          content:
+            application/json:
+              example:
+                errors:
+                  base:
+                  - Invalid username or password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - username
+              - password
+              properties:
+                username:
+                  type: string
+                  example: tom
+                password:
+                  type: string
+                  example: hHtpZA0m
+    delete:
+      summary: Destroys Session
+      tags:
+      - Sessions
+      parameters:
+      - name: X-Refresh-Token
+        in: header
+        description: Refresh Token
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Session is destroyed
+        '403':
+          description: Not authorized
+  "/api/v1/user":
+    post:
+      summary: Creates User
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: User is created
+        '422':
+          description: Invalid params
+          content:
+            application/json:
+              example:
+                errors:
+                  username:
+                  - The field is required.
+                  password:
+                  - The field is required.
+                  password_confirmation:
+                  - The field is required.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - user
+              properties:
+                user:
+                  type: object
+                  required:
+                  - username
+                  - password
+                  - password_confirmation
+                  properties:
+                    username:
+                      type: string
+                      example: freddysamuelsson
+                    password:
+                      type: string
+                      example: Abc43Dea
+                    password_confirmation:
+                      type: string
+                      example: Abc43Dea
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
+components:
+  securitySchemes:
+    Bearer:
+      description: JWT key necessary to use API calls
+      type: apiKey
+      name: Authorization
+      in: header
