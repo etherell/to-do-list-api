@@ -83,13 +83,12 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
     end
   end
 
-  path '/api/v1/projects/{project_id}/tasks/{id}' do
+  path '/api/v1/tasks/{id}' do
     put 'Updates task' do
       tags 'Tasks'
       consumes 'application/json'
       security [Bearer: {}]
       parameter name: :Authorization, in: :header, type: :string
-      parameter name: :project_id, in: :path, type: :string, description: 'Project id'
       parameter name: :id, in: :path, type: :string, description: 'Task id'
       parameter name: :params, in: :body, schema: {
         type: :object,
@@ -111,12 +110,10 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
       response '200', 'Task is updated' do
         let(:task_attributes) { attributes_for(:task) }
         let(:Authorization) { create_token(entity: user, token_type: :access) }
-        let(:project_id) { project.id }
         let(:id) { task.id }
         let(:params) { { task: task_attributes } }
-        let(:user) { create(:user) }
-        let(:project) { create(:project, user: user) }
-        let(:task) { create(:task, project: project) }
+        let(:user) { task.project.user }
+        let(:task) { create(:task) }
 
         run_test! do
           expect(response).to be_ok
@@ -127,7 +124,6 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
       response '401', 'Unauthorized' do
         let(:Authorization) { nil }
         let(:params) { { task: {} } }
-        let(:project_id) { SecureRandom.uuid }
         let(:id) { SecureRandom.uuid }
 
         run_test! do
@@ -135,23 +131,9 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
         end
       end
 
-      response '404', 'Project not found' do
-        let(:Authorization) { create_token(entity: user, token_type: :access) }
-        let(:user) { create(:user) }
-        let(:project_id) { SecureRandom.uuid }
-        let(:id) { SecureRandom.uuid }
-        let(:params) { { task: {} } }
-
-        run_test! do
-          expect(response).to be_not_found
-        end
-      end
-
       response '404', 'Task not found' do
         let(:Authorization) { create_token(entity: user, token_type: :access) }
         let(:user) { create(:user) }
-        let(:project) { create(:project, user: user) }
-        let(:project_id) { project.id }
         let(:id) { SecureRandom.uuid }
         let(:params) { { task: {} } }
 
@@ -162,12 +144,10 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
 
       response '422', 'Invalid params' do
         let(:Authorization) { create_token(entity: user, token_type: :access) }
-        let(:project_id) { project.id }
         let(:id) { task.id }
         let(:params) { { task: {} } }
-        let(:user) { create(:user) }
-        let(:project) { create(:project, user: user) }
-        let(:task) { create(:task, project: project) }
+        let(:user) { task.project.user }
+        let(:task) { create(:task) }
 
         run_test! do
           expect(response).to be_unprocessable
@@ -177,21 +157,18 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
     end
   end
 
-  path '/api/v1/projects/{project_id}/tasks/{id}' do
+  path '/api/v1/tasks/{id}' do
     delete 'Deletes Task' do
       tags 'Tasks'
       consumes 'application/json'
       security [Bearer: {}]
       parameter name: :Authorization, in: :header, type: :string
-      parameter name: :project_id, in: :path, type: :string, description: 'Project id'
       parameter name: :id, in: :path, type: :string, description: 'Task id'
 
       response '204', 'Task deleted' do
         let(:Authorization) { create_token(entity: user, token_type: :access) }
-        let(:user) { create(:user) }
-        let(:project) { create(:project, user: user) }
-        let(:task) { create(:task, project: project) }
-        let(:project_id) { project.id }
+        let(:user) { task.project.user }
+        let(:task) { create(:task) }
         let(:id) { task.id }
 
         run_test! do
@@ -201,7 +178,6 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
 
       response '401', 'Unauthorized' do
         let(:Authorization) { nil }
-        let(:project_id) { SecureRandom.uuid }
         let(:id) { SecureRandom.uuid }
         let(:params) { { project: {} } }
 
@@ -213,7 +189,6 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
       response '404', 'Task not found' do
         let(:Authorization) { create_token(entity: user, token_type: :access) }
         let(:user) { create(:user) }
-        let(:project_id) { SecureRandom.uuid }
         let(:id) { SecureRandom.uuid }
 
         run_test! do

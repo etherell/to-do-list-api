@@ -36,3 +36,11 @@ en:
           position:
             filled?: Position is required
             int?: Position should be a number
+      comment:
+        rules:
+          text:
+            filled?: Text is required.
+            size?: Description size must be within %{size_left} - %{size_right}
+          image:
+            valid_image?: File format should be Jpeg or PNG and size should be less than 10MB
+
