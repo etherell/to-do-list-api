@@ -49,10 +49,14 @@ RSpec.describe 'api/v1/sessions', type: :request do
       response '401', 'Invalid credentials' do
         let(:credentials) do
           {
-            username: FFaker::InternetSE.unique.login_user_name,
-            password: FFaker::Internet.password[0...Constants::Shared::PASSWORD_SIZE]
+            username: random_username,
+            password: random_password
           }
         end
+        let(:random_username) do
+          "#{FFaker::InternetSE.unique.login_user_name} #{FFaker::InternetSE.login_user_name}"
+        end
+        let(:random_password) { 'Pass1234' }
 
         run_test! do
           expect(response).to be_unauthorized
@@ -79,7 +83,7 @@ RSpec.describe 'api/v1/sessions', type: :request do
       end
 
       response '403', 'Not authorized' do
-        let(:'X-Refresh-Token') {}
+        let(:'X-Refresh-Token') { nil }
 
         run_test! do
           expect(response).to be_forbidden

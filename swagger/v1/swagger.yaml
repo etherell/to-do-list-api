@@ -4,6 +4,59 @@ info:
   title: API V1
   version: v1
 paths:
+  "/api/v1/projects":
+    post:
+      summary: Creates Project
+      tags:
+      - Projects
+      security:
+      - Bearer: {}
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Project is created
+          content:
+            application/json:
+              example:
+                data:
+                  id: 97cecb94-c5c6-4182-bd90-1a9c926ef8ba
+                  type: project
+                  attributes:
+                    title: cumque
+        '401':
+          description: Unauthorized
+        '422':
+          description: Invalid params
+          content:
+            application/json:
+              example:
+                errors:
+                  title:
+                  - Title is required.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - project
+              properties:
+                project:
+                  type: object
+                  required:
+                  - title
+                  - project_id
+                  properties:
+                    title:
+                      type: string
+                      example: modi
+                    user_id:
+                      type: string
+                      example: f220de21-24e3-4000-bc24-ac9a09ca3819
   "/api/v1/session":
     post:
       summary: Creates Session
@@ -17,16 +70,16 @@ paths:
             application/json:
               example:
                 data:
-                  id: 05c3e9be-0c6d-4b78-a6ed-29bf1a278423
+                  id: fce0f47a-0445-4ab2-8c14-b6508b49a378
                   type: user_account
                   attributes:
-                    username: irwin_jansson
+                    username: ricardahedlund valentin_sjberg
                 meta:
-                  csrf: J6gTIGVWdWttgKUT0qDWdansWQlC7IUaM+3x/i6faDNj+MclYO1noJvJM8R7yNwsWvNyWxQIP/oxtk1LMNvXrg==
-                  access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUyMTAyNTIsInVzZXJfaWQiOiIwNWMzZTliZS0wYzZkLTRiNzgtYTZlZC0yOWJmMWEyNzg0MjMiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi0wNWMzZTliZS0wYzZkLTRiNzgtYTZlZC0yOWJmMWEyNzg0MjMiLCJ1aWQiOiJiYzc3Mzc0MS0yMmFmLTQyMDAtYmEwNC0zZmRhMDFmNGE5M2YifQ.PhuYRE5aEeXE7tPw64-SI78reUHExoDiDMZZf0qZk3w
-                  access_expires_at: '2022-02-18T20:50:52.000+02:00'
-                  refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUyNDk4NTIsInVzZXJfaWQiOiIwNWMzZTliZS0wYzZkLTRiNzgtYTZlZC0yOWJmMWEyNzg0MjMiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi0wNWMzZTliZS0wYzZkLTRiNzgtYTZlZC0yOWJmMWEyNzg0MjMiLCJ1aWQiOiI2MzBjZWUyNC1lMjMyLTQ3MzItYjFlYy1mOGFkOWU2YTNmYmQifQ.bFfCXVMamV1uVNFQ_4Hi9VZ83c1L4ZhZM2cZeNPCrOk
-                  refresh_expires_at: '2022-02-19T07:50:52.000+02:00'
+                  csrf: O9PqOg7WXasErDUtuIbt3bLYIzPMl8F/Er+TK1/DBUeNl4PCL96zE3fg2+snq+gyl07gVYnXJ0fkzXkUwkwJCQ==
+                  access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUyMjEwNzYsInVzZXJfaWQiOiJmY2UwZjQ3YS0wNDQ1LTRhYjItOGMxNC1iNjUwOGI0OWEzNzgiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi1mY2UwZjQ3YS0wNDQ1LTRhYjItOGMxNC1iNjUwOGI0OWEzNzgiLCJ1aWQiOiJmZTYxYzY4OS04MzUzLTQ2NjktOTE5MS1iN2U5Zjk4OWE2ZjIifQ.emHDrWofzOlpMqw3W7KbLfiDM-9n-BgCp6K-xx54Nmc
+                  access_expires_at: '2022-02-18T23:51:16.000+02:00'
+                  refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUyNjA2NzYsInVzZXJfaWQiOiJmY2UwZjQ3YS0wNDQ1LTRhYjItOGMxNC1iNjUwOGI0OWEzNzgiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi1mY2UwZjQ3YS0wNDQ1LTRhYjItOGMxNC1iNjUwOGI0OWEzNzgiLCJ1aWQiOiI1YWI0MWU2My0wMTFkLTQxNTMtOThkYi00MzA5ZGYzMWNiYTkifQ.BinysM6g1UoLh2CauyJPZTip4dqpCE0gwf6pIqezOJs
+                  refresh_expires_at: '2022-02-19T10:51:16.000+02:00'
         '422':
           description: Invalid params
           content:
@@ -56,10 +109,10 @@ paths:
               properties:
                 username:
                   type: string
-                  example: tom
+                  example: kam
                 password:
                   type: string
-                  example: hHtpZA0m
+                  example: I4dsuxI0
     delete:
       summary: Destroys Session
       tags:
@@ -113,7 +166,7 @@ paths:
                   properties:
                     username:
                       type: string
-                      example: freddysamuelsson
+                      example: gaylordabrahamsson
                     password:
                       type: string
                       example: Abc43Dea
