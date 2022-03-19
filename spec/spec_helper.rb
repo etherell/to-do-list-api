@@ -4,7 +4,7 @@ require 'simplecov'
 
 SimpleCov.start do
   enable_coverage :branch
-  add_filter %w[/spec/ /config/ /vendor/ /lib/active_admin app/controllers/concerns app/services]
+  add_filter %w[/spec/ /config/ /vendor/ app/services]
   minimum_coverage 95
 end
 

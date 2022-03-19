@@ -23,10 +23,10 @@ paths:
             application/json:
               example:
                 data:
-                  id: ce1c0fc5-619b-4624-bc06-53672b06e033
+                  id: d52f01cd-0f7f-4ed0-9e8f-f4bdb2eea14f
                   type: project
                   attributes:
-                    title: Reiciendis quae expedita dolores natus eligendi.
+                    title: Fugiat vel sequi ipsum aliquid optio autem.
         '401':
           description: Unauthorized
         '422':
@@ -52,8 +52,8 @@ paths:
                   properties:
                     title:
                       type: string
-                      example: Eos optio exercitationem voluptas veniam facere magni
-                        esse saepe.
+                      example: Doloremque aliquid eum impedit harum ullam pariatur
+                        debitis.
   "/api/v1/projects/{id}":
     patch:
       summary: Updates Project
@@ -79,10 +79,10 @@ paths:
             application/json:
               example:
                 data:
-                  id: b134427e-210a-4844-a16e-38fd67a4cba1
+                  id: 81fbffe7-26f0-4e29-b39e-1c63a0686f19
                   type: project
                   attributes:
-                    title: Fugiat quos ducimus eaque alias eum.
+                    title: Incidunt modi minus unde optio corporis debitis.
         '401':
           description: Unauthorized
         '422':
@@ -110,8 +110,8 @@ paths:
                   properties:
                     title:
                       type: string
-                      example: At facilis provident necessitatibus fugit quos tempore
-                        doloremque.
+                      example: Nisi laborum quo commodi soluta cupiditate tenetur
+                        nostrum.
     delete:
       summary: Deletes Project
       tags:
@@ -149,16 +149,16 @@ paths:
             application/json:
               example:
                 data:
-                  id: 26efeb40-624e-4286-8b7f-20224d4aa3ed
+                  id: 6c1c26b3-2450-40ff-a013-55b4ae4bc2f1
                   type: user_account
                   attributes:
-                    username: elishabjrk maritatynisha
+                    username: echo katlyn
                 meta:
-                  csrf: oG8iAZ2Hp2C2PKeCtPyOny7VXCQaZlV8mAusSu5nDk6kmEIzQD0pFK9SHHZGOM//z4hgnW4FVKesQf0muppFsw==
-                  access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUyMjcxNTUsInVzZXJfaWQiOiIyNmVmZWI0MC02MjRlLTQyODYtOGI3Zi0yMDIyNGQ0YWEzZWQiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi0yNmVmZWI0MC02MjRlLTQyODYtOGI3Zi0yMDIyNGQ0YWEzZWQiLCJ1aWQiOiJlZmNjN2MyNS03MmM1LTQ4MWItOGY4Zi1lNzdmN2ZjYWZhYjIifQ.hzmqF41YNxq3Ngzkf1Xe7aK_FanC5jwWs6KZUgNh6jY
-                  access_expires_at: '2022-02-19T01:32:35.000+02:00'
-                  refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUyNjY3NTUsInVzZXJfaWQiOiIyNmVmZWI0MC02MjRlLTQyODYtOGI3Zi0yMDIyNGQ0YWEzZWQiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi0yNmVmZWI0MC02MjRlLTQyODYtOGI3Zi0yMDIyNGQ0YWEzZWQiLCJ1aWQiOiIxZTAyMTBkMy1lYjZhLTQ1NWQtOTM4My1jZDI0MmRiOWM3ODYifQ.9Q7V5Xu2bw79Qhfdn4y6iu4-kuJe6ZC-RSdc01aJjdM
-                  refresh_expires_at: '2022-02-19T12:32:35.000+02:00'
+                  csrf: EafXX+h5awe8uC7l/NGgk/fDY2rXHN5HjOfPn1qOrNDmJS5R5AR6P/Zws9VTtlxIgk0DhyD9cMTDrtM6QNmrog==
+                  access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUyNjA0MzIsInVzZXJfaWQiOiI2YzFjMjZiMy0yNDUwLTQwZmYtYTAxMy01NWI0YWU0YmMyZjEiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi02YzFjMjZiMy0yNDUwLTQwZmYtYTAxMy01NWI0YWU0YmMyZjEiLCJ1aWQiOiI2MmViYmMzMi02NzY2LTQ1NTgtODQ2YS05ZjExMzI4ZjMwYTkifQ.DmD9Wgmc08datGy_oxRERUWCCRMs6KF7zZcrqegjIH4
+                  access_expires_at: '2022-02-19T10:47:12.000+02:00'
+                  refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUzMDAwMzIsInVzZXJfaWQiOiI2YzFjMjZiMy0yNDUwLTQwZmYtYTAxMy01NWI0YWU0YmMyZjEiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi02YzFjMjZiMy0yNDUwLTQwZmYtYTAxMy01NWI0YWU0YmMyZjEiLCJ1aWQiOiI3NmU0NzA3OS0xODU4LTRkZmUtYjUyMi1mZTM1MTA4NTUxNzIifQ.DbmWBQbGLFjt86NcrzqCyWly9D_297a3aQ3fjv53Gsw
+                  refresh_expires_at: '2022-02-19T21:47:12.000+02:00'
         '422':
           description: Invalid params
           content:
@@ -188,10 +188,10 @@ paths:
               properties:
                 username:
                   type: string
-                  example: laquita
+                  example: tiannareynalda
                 password:
                   type: string
-                  example: emRExP7u
+                  example: SL5PZyy0
     delete:
       summary: Destroys Session
       tags:
@@ -207,6 +207,63 @@ paths:
           description: Session is destroyed
         '403':
           description: Not authorized
+  "/api/v1/projects/{project_id}/tasks":
+    post:
+      summary: Creates task
+      tags:
+      - Tasks
+      security:
+      - Bearer: {}
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: project_id
+        in: path
+        description: Project id
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Task is created
+          content:
+            application/json:
+              example:
+                data:
+                  id: 2d749a8b-ed54-4466-85b2-17b108c43892
+                  type: task
+                  attributes:
+                    description: Quo quos error atque architecto porro.
+        '401':
+          description: Unauthorized
+        '404':
+          description: Project not found
+        '422':
+          description: Invalid params
+          content:
+            application/json:
+              example:
+                errors:
+                  description:
+                  - Description is required.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - task
+              properties:
+                task:
+                  type: object
+                  required:
+                  - description
+                  properties:
+                    description:
+                      type: string
+                      example: Eaque provident minus quibusdam iste velit itaque.
   "/api/v1/user":
     post:
       summary: Creates User
@@ -245,7 +302,7 @@ paths:
                   properties:
                     username:
                       type: string
-                      example: casey
+                      example: johnsonholmgren
                     password:
                       type: string
                       example: Abc43Dea
