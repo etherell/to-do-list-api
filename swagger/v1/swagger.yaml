@@ -23,10 +23,10 @@ paths:
             application/json:
               example:
                 data:
-                  id: 7c583296-52d9-4a37-96ef-d88b28b85856
+                  id: ce1c0fc5-619b-4624-bc06-53672b06e033
                   type: project
                   attributes:
-                    title: Odio molestiae nihil tempore ex veniam adipisci.
+                    title: Reiciendis quae expedita dolores natus eligendi.
         '401':
           description: Unauthorized
         '422':
@@ -52,7 +52,8 @@ paths:
                   properties:
                     title:
                       type: string
-                      example: Aspernatur facere eligendi temporibus suscipit.
+                      example: Eos optio exercitationem voluptas veniam facere magni
+                        esse saepe.
   "/api/v1/projects/{id}":
     patch:
       summary: Updates Project
@@ -78,10 +79,10 @@ paths:
             application/json:
               example:
                 data:
-                  id: f9337ab1-712a-46f2-813c-24416881e414
+                  id: b134427e-210a-4844-a16e-38fd67a4cba1
                   type: project
                   attributes:
-                    title: Occaecati eos corrupti error accusamus.
+                    title: Fugiat quos ducimus eaque alias eum.
         '401':
           description: Unauthorized
         '422':
@@ -109,7 +110,32 @@ paths:
                   properties:
                     title:
                       type: string
-                      example: Ex itaque error adipisci vitae blanditiis.
+                      example: At facilis provident necessitatibus fugit quos tempore
+                        doloremque.
+    delete:
+      summary: Deletes Project
+      tags:
+      - Projects
+      security:
+      - Bearer: {}
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: Project id
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Project deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Project not found
   "/api/v1/session":
     post:
       summary: Creates Session
@@ -123,16 +149,16 @@ paths:
             application/json:
               example:
                 data:
-                  id: 4c7e8cae-1575-4304-ae37-f833c127a510
+                  id: 26efeb40-624e-4286-8b7f-20224d4aa3ed
                   type: user_account
                   attributes:
-                    username: alisonmattsson allanbjrk
+                    username: elishabjrk maritatynisha
                 meta:
-                  csrf: l4vyG/9o5mXVCEPqB9dofRYEoCxyFDF8pTRmswP733UwW5ptKjFFpNUPJlzPa+AszPylliWAjHnZmBNX3n9a5Q==
-                  access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUyMjUxOTYsInVzZXJfaWQiOiI0YzdlOGNhZS0xNTc1LTQzMDQtYWUzNy1mODMzYzEyN2E1MTAiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi00YzdlOGNhZS0xNTc1LTQzMDQtYWUzNy1mODMzYzEyN2E1MTAiLCJ1aWQiOiI1NDA1ZTI1My0zMDU1LTRlYTItOTJjNy00MjU0MzA3ZjI5ZGYifQ.FXERY9JirBIZMnyTW9jRuCzvDlH6IBqTDdTgEIQ-Jus
-                  access_expires_at: '2022-02-19T00:59:56.000+02:00'
-                  refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUyNjQ3OTYsInVzZXJfaWQiOiI0YzdlOGNhZS0xNTc1LTQzMDQtYWUzNy1mODMzYzEyN2E1MTAiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi00YzdlOGNhZS0xNTc1LTQzMDQtYWUzNy1mODMzYzEyN2E1MTAiLCJ1aWQiOiJkMGM1ZGU5NC00MDA5LTRiNzgtOTQ4Yi0wMTk2YmU5NTIxYWMifQ.joNAJl709SIYt5_rsx3ugUj5z53X-faADfYpvgLSAJc
-                  refresh_expires_at: '2022-02-19T11:59:56.000+02:00'
+                  csrf: oG8iAZ2Hp2C2PKeCtPyOny7VXCQaZlV8mAusSu5nDk6kmEIzQD0pFK9SHHZGOM//z4hgnW4FVKesQf0muppFsw==
+                  access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUyMjcxNTUsInVzZXJfaWQiOiIyNmVmZWI0MC02MjRlLTQyODYtOGI3Zi0yMDIyNGQ0YWEzZWQiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi0yNmVmZWI0MC02MjRlLTQyODYtOGI3Zi0yMDIyNGQ0YWEzZWQiLCJ1aWQiOiJlZmNjN2MyNS03MmM1LTQ4MWItOGY4Zi1lNzdmN2ZjYWZhYjIifQ.hzmqF41YNxq3Ngzkf1Xe7aK_FanC5jwWs6KZUgNh6jY
+                  access_expires_at: '2022-02-19T01:32:35.000+02:00'
+                  refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUyNjY3NTUsInVzZXJfaWQiOiIyNmVmZWI0MC02MjRlLTQyODYtOGI3Zi0yMDIyNGQ0YWEzZWQiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi0yNmVmZWI0MC02MjRlLTQyODYtOGI3Zi0yMDIyNGQ0YWEzZWQiLCJ1aWQiOiIxZTAyMTBkMy1lYjZhLTQ1NWQtOTM4My1jZDI0MmRiOWM3ODYifQ.9Q7V5Xu2bw79Qhfdn4y6iu4-kuJe6ZC-RSdc01aJjdM
+                  refresh_expires_at: '2022-02-19T12:32:35.000+02:00'
         '422':
           description: Invalid params
           content:
@@ -162,10 +188,10 @@ paths:
               properties:
                 username:
                   type: string
-                  example: nigel
+                  example: laquita
                 password:
                   type: string
-                  example: CBdX7Eg_
+                  example: emRExP7u
     delete:
       summary: Destroys Session
       tags:
@@ -219,7 +245,7 @@ paths:
                   properties:
                     username:
                       type: string
-                      example: kenyatta_sundstrm
+                      example: casey
                     password:
                       type: string
                       example: Abc43Dea
