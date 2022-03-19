@@ -23,10 +23,10 @@ paths:
             application/json:
               example:
                 data:
-                  id: 4bb4a39b-5d16-42f7-ba87-7d33b9eb7888
+                  id: 511a229a-11a9-426a-82d0-bbdcdfa62eb9
                   type: project
                   attributes:
-                    title: Quaerat dignissimos nemo autem nulla deleniti dolor id.
+                    title: Fugiat corrupti consequuntur maiores accusamus.
         '401':
           description: Unauthorized
         '422':
@@ -52,8 +52,7 @@ paths:
                   properties:
                     title:
                       type: string
-                      example: Inventore molestias vel soluta iure expedita consectetur
-                        eaque quisquam.
+                      example: Quasi pariatur omnis quam possimus veritatis odit occaecati.
   "/api/v1/projects/{id}":
     patch:
       summary: Updates Project
@@ -79,10 +78,10 @@ paths:
             application/json:
               example:
                 data:
-                  id: 17cc9417-254a-4ff6-8e03-b168a6f2837e
+                  id: 7fae3e42-da1c-411e-9da0-61271b4c9665
                   type: project
                   attributes:
-                    title: Nisi odio voluptatibus porro laborum asperiores.
+                    title: Cum blanditiis hic temporibus culpa perspiciatis.
         '401':
           description: Unauthorized
         '422':
@@ -110,7 +109,8 @@ paths:
                   properties:
                     title:
                       type: string
-                      example: Inventore mollitia eveniet accusamus optio dolor similique.
+                      example: Sint rem occaecati soluta placeat necessitatibus optio
+                        sequi libero.
     delete:
       summary: Deletes Project
       tags:
@@ -148,16 +148,16 @@ paths:
             application/json:
               example:
                 data:
-                  id: 5aa2e7e0-220b-4fab-88b9-0c2420a4d698
+                  id: 751ec924-933d-48bc-87bc-bc1a316784af
                   type: user_account
                   attributes:
-                    username: bernienestor_holmberg elmerholmberg
+                    username: mattheweriksson clarence_lind
                 meta:
-                  csrf: ngko5cdL5tQGz3DwavezC5c+Vg5sxkWuyofA2FX/WIftFgW+hPdTdLjxH13guF9Sq6RdbYWvDB7IfAnJjuiiPQ==
-                  access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUyNjg2NjAsInVzZXJfaWQiOiI1YWEyZTdlMC0yMjBiLTRmYWItODhiOS0wYzI0MjBhNGQ2OTgiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi01YWEyZTdlMC0yMjBiLTRmYWItODhiOS0wYzI0MjBhNGQ2OTgiLCJ1aWQiOiJlZTgzZjkxZC1lMjU5LTQ1ZDEtYWI5NC04N2U0M2FiYzgxZWUifQ.y9ByBh06tPaX3yidB4tBZfZIQXEqtGMnQH2NaBvjdOY
-                  access_expires_at: '2022-02-19T13:04:20.000+02:00'
-                  refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUzMDgyNjAsInVzZXJfaWQiOiI1YWEyZTdlMC0yMjBiLTRmYWItODhiOS0wYzI0MjBhNGQ2OTgiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi01YWEyZTdlMC0yMjBiLTRmYWItODhiOS0wYzI0MjBhNGQ2OTgiLCJ1aWQiOiI1ODc4MzUyMy1mMTdkLTRiYjgtYTJmMy01MWRiNzhkYmUwMjIifQ.wxcIZVoWAC74TergnkR4NwzafXdiD4mzAz-CsTcHmpo
-                  refresh_expires_at: '2022-02-20T00:04:20.000+02:00'
+                  csrf: tULQe/EtZdvm7vHcwAoAIdz8d2jqH8hRqor8/5TRXOnT5OHU3boq8XCqV5l/Ybq0/b31UiMFa+oAanEy0OpYzw==
+                  access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUyNzI5MTksInVzZXJfaWQiOiI3NTFlYzkyNC05MzNkLTQ4YmMtODdiYy1iYzFhMzE2Nzg0YWYiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi03NTFlYzkyNC05MzNkLTQ4YmMtODdiYy1iYzFhMzE2Nzg0YWYiLCJ1aWQiOiIwMDFmMDBiZC1lNGRiLTQ1YmMtYjA2OC0yMzFkMDMwY2Q2YjEifQ.a6nNSYzumDvU2uN9lBiUZcm7mzNaZAIrqgaYFniS7o4
+                  access_expires_at: '2022-02-19T14:15:19.000+02:00'
+                  refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUzMTI1MTksInVzZXJfaWQiOiI3NTFlYzkyNC05MzNkLTQ4YmMtODdiYy1iYzFhMzE2Nzg0YWYiLCJuYW1lc3BhY2UiOiJ1c2VyLWFjY291bnQtc2Vzc2lvbi03NTFlYzkyNC05MzNkLTQ4YmMtODdiYy1iYzFhMzE2Nzg0YWYiLCJ1aWQiOiJhYTM1N2UxYy05YzRkLTRkNWMtOTA5ZC0zZTgxNjYzMTlmNzgifQ.476bC8m3aObY_c79-2aszSWOYc188dyFv-uQShBkWFo
+                  refresh_expires_at: '2022-02-20T01:15:19.000+02:00'
         '422':
           description: Invalid params
           content:
@@ -187,10 +187,10 @@ paths:
               properties:
                 username:
                   type: string
-                  example: mario
+                  example: albertina
                 password:
                   type: string
-                  example: nvaUEzZR
+                  example: yAtSLKDq
     delete:
       summary: Destroys Session
       tags:
@@ -231,14 +231,14 @@ paths:
             application/json:
               example:
                 data:
-                  id: 734358a8-e9c0-45fd-9568-12db8a497d3a
+                  id: 34a0c28f-887d-44aa-ba07-960db54fbbcf
                   type: task
                   attributes:
-                    description: Tempore maiores fugit eligendi sequi nam incidunt
-                      mollitia.
+                    description: Consectetur veniam aut laborum blanditiis voluptas
+                      voluptate.
                     position: 1
                     is_done: false
-                    deadline: '2022-02-19T10:04:21.005Z'
+                    deadline: '2022-02-19T11:15:19.912Z'
         '401':
           description: Unauthorized
         '404':
@@ -269,10 +269,88 @@ paths:
                   properties:
                     description:
                       type: string
-                      example: Ipsa doloribus libero dolore quidem nisi cupiditate.
+                      example: Fuga asperiores perspiciatis quo illo.
                     deadline:
                       type: string
-                      example: '2022-02-19T12:04:20+02:00'
+                      example: '2022-02-19T13:15:19+02:00'
+  "/api/v1/projects/{project_id}/tasks/{id}":
+    put:
+      summary: Updates task
+      tags:
+      - Tasks
+      security:
+      - Bearer: {}
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: project_id
+        in: path
+        description: Project id
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: Task id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Task is updated
+          content:
+            application/json:
+              example:
+                data:
+                  id: 3ffe267c-b8a6-441d-b30e-87a0bec321b2
+                  type: task
+                  attributes:
+                    description: Similique dolorem esse nam quod quas voluptate.
+                    position: 1
+                    is_done: false
+                    deadline: '2022-02-19T11:15:20.025Z'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Task not found
+        '422':
+          description: Invalid params
+          content:
+            application/json:
+              example:
+                errors:
+                  deadline:
+                  - Deadline should have DateTime format
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - task
+              properties:
+                task:
+                  type: object
+                  required:
+                  - description
+                  - deadline
+                  - position
+                  - is_done
+                  properties:
+                    description:
+                      type: string
+                      example: Esse asperiores beatae a illum.
+                    deadline:
+                      type: string
+                      example: '2022-02-19T13:15:19+02:00'
+                    position:
+                      type: integer
+                      example: 3
+                    is_done:
+                      type: boolean
+                      example: true
   "/api/v1/user":
     post:
       summary: Creates User
@@ -311,7 +389,7 @@ paths:
                   properties:
                     username:
                       type: string
-                      example: jenell_berg
+                      example: porshakarol
                     password:
                       type: string
                       example: Abc43Dea
