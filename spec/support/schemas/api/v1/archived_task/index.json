@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "attributes": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "position": {
+                  "type": "integer"
+                },
+                "is_done": {
+                  "type": "boolean"
+                },
+                "deadline": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "description",
+                "position",
+                "is_done",
+                "deadline"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "type",
+            "attributes"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "attributes": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "position": {
+                  "type": "integer"
+                },
+                "is_done": {
+                  "type": "boolean"
+                },
+                "deadline": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "description",
+                "position",
+                "is_done",
+                "deadline"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "type",
+            "attributes"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "attributes": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "position": {
+                  "type": "integer"
+                },
+                "is_done": {
+                  "type": "boolean"
+                },
+                "deadline": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "description",
+                "position",
+                "is_done",
+                "deadline"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "type",
+            "attributes"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}
