@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_19_173939) do
+ActiveRecord::Schema.define(version: 2022_03_19_215332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -55,4 +55,18 @@ ActiveRecord::Schema.define(version: 2022_02_19_173939) do
   add_foreign_key "comments", "tasks"
   add_foreign_key "projects", "users"
   add_foreign_key "tasks", "projects"
+
+  create_view "archived_tasks", sql_definition: <<-SQL
+      SELECT tasks.id,
+      tasks.project_id,
+      tasks.description,
+      tasks.created_at,
+      tasks.updated_at,
+      tasks.is_done,
+      tasks.deadline,
+      tasks."position"
+     FROM tasks
+    WHERE (((tasks.is_done = true) AND (tasks.deadline > (now() - 'P15D'::interval))) OR ((tasks.is_done = false) AND (tasks.deadline > (now() - 'P30D'::interval))))
+    ORDER BY tasks.deadline DESC;
+  SQL
 end

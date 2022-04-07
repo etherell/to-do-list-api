@@ -8,7 +8,7 @@ ruby(File.read(File.join(File.dirname(__FILE__), '.ruby-version')).strip)
 # System
 gem 'carmen', '~> 1.1'
 gem 'pg', '~> 1.1'
-gem 'puma', '~> 5.6.2'
+gem 'puma', '~> 5.6.4'
 gem 'rails', '~> 6.1.4.1'
 gem 'sidekiq', '~> 6.4.0'
 
@@ -43,6 +43,11 @@ gem 'rswag', '~> 2.4.0'
 # Sorting
 gem 'acts_as_list', '~> 1.0', '>= 1.0.4'
 
+# SQL features
+gem 'fx', '~> 0.6.2'
+gem 'pg_search', '~> 2.3'
+gem 'scenic', '~> 1.6'
+
 group :development, :test do
   gem 'bullet', '~> 6.1'
   gem 'factory_bot_rails', '~> 6.1'
@@ -50,7 +55,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.9'
 
   # Code quality
-  gem 'brakeman', '~> 5.2.1', require: false
+  gem 'brakeman', '~> 5.2.2', require: false
   gem 'bundle-audit', '~> 0.1.0', require: false
   gem 'fasterer', '~> 0.9.0', require: false
   gem 'i18n-tasks', '~> 0.9.34', require: false
