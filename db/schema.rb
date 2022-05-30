@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_19_215332) do
+ActiveRecord::Schema.define(version: 2022_05_30_160858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2022_03_19_215332) do
     t.boolean "is_done", default: false
     t.datetime "deadline", null: false
     t.integer "position"
+    t.integer "overdue_status"
     t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 
@@ -55,6 +56,29 @@ ActiveRecord::Schema.define(version: 2022_03_19_215332) do
   add_foreign_key "comments", "tasks"
   add_foreign_key "projects", "users"
   add_foreign_key "tasks", "projects"
+  create_function :update_task_overdue_status, sql_definition: <<-SQL
+      CREATE OR REPLACE FUNCTION public.update_task_overdue_status()
+       RETURNS trigger
+       LANGUAGE plpgsql
+      AS $function$
+        BEGIN
+      	IF NEW.is_done = true THEN
+      		IF  NEW.deadline > NOW() THEN
+      			NEW.overdue_status = 1;
+      		ELSE
+      			NEW.overdue_status = 0;
+      		END IF;
+      	END IF;
+
+        RETURN NEW;
+      END;
+      $function$
+  SQL
+
+
+  create_trigger :update_task_overdue_status, sql_definition: <<-SQL
+      CREATE TRIGGER update_task_overdue_status BEFORE UPDATE ON public.tasks FOR EACH ROW EXECUTE PROCEDURE update_task_overdue_status()
+  SQL
 
   create_view "archived_tasks", sql_definition: <<-SQL
       SELECT tasks.id,

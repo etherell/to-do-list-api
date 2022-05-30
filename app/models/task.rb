@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
 class Task < ApplicationRecord
+  OVERDUE_STATUSES = { in_time: 0, overdue: 1 }.freeze
+
   belongs_to :project
   has_many :comments, dependent: :destroy
 
   acts_as_list scope: :project
+
+  enum overdue_status: OVERDUE_STATUSES
 end
