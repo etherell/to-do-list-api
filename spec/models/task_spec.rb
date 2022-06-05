@@ -39,4 +39,25 @@ RSpec.describe Task, type: :model do
       end
     end
   end
+
+  describe 'full text search by description' do
+    let(:multisearch) { PgSearch.multisearch(description) }
+    let(:description) { FFaker::Lorem.word }
+
+    context 'with search by correct phrase' do
+      let!(:task) { create(:task, description: description) }
+
+      it 'returns correct task' do
+        expect(multisearch.last.searchable).to eq(task)
+      end
+    end
+
+    context 'with search by random phrase' do
+      let!(:task) { create(:task, description: FFaker::Name.first_name) }
+
+      it 'returns nothing' do
+        expect(multisearch).to eq([])
+      end
+    end
+  end
 end

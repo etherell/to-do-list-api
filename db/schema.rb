@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_30_160858) do
+ActiveRecord::Schema.define(version: 2022_06_05_134858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -25,11 +25,22 @@ ActiveRecord::Schema.define(version: 2022_05_30_160858) do
     t.index ["task_id"], name: "index_comments_on_task_id"
   end
 
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.uuid "searchable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
+  end
+
   create_table "projects", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title", null: false
     t.uuid "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.tsvector "title_tsvector"
+    t.index ["title_tsvector"], name: "title_tsvector_idx", using: :gin
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
@@ -74,8 +85,25 @@ ActiveRecord::Schema.define(version: 2022_05_30_160858) do
       END;
       $function$
   SQL
+  create_function :generate_tsvector_for_projects_title, sql_definition: <<-SQL
+      CREATE OR REPLACE FUNCTION public.generate_tsvector_for_projects_title()
+       RETURNS trigger
+       LANGUAGE plpgsql
+      AS $function$
+      BEGIN
+        IF (TG_OP = 'INSERT') OR (TG_OP = 'UPDATE' AND NEW.title != OLD.title) THEN
+          NEW.title_tsvector := to_tsvector('pg_catalog.english', coalesce(NEW.title,''));
+        END IF;
+
+        RETURN NEW;
+      END;
+      $function$
+  SQL
 
 
+  create_trigger :generate_tsvector_for_projects_title, sql_definition: <<-SQL
+      CREATE TRIGGER generate_tsvector_for_projects_title BEFORE INSERT OR UPDATE ON public.projects FOR EACH ROW EXECUTE PROCEDURE generate_tsvector_for_projects_title()
+  SQL
   create_trigger :update_task_overdue_status, sql_definition: <<-SQL
       CREATE TRIGGER update_task_overdue_status BEFORE UPDATE ON public.tasks FOR EACH ROW EXECUTE PROCEDURE update_task_overdue_status()
   SQL
