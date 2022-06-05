@@ -4,7 +4,7 @@ default: &default
   encoding: unicode
   pool: 5
   timeout: 5000
-  host: <%= Rails.application.credentials.dig(:db, :host) || 'postgres' %>
+  host: <%= Rails.application.credentials.dig(:db, :host) || 'localhost' %>
   username: <%= Rails.application.credentials.dig(:db, :user) || ENV['DB_USER'] %>
   password: <%= Rails.application.credentials.dig(:db, :password) || ENV['DB_PASSWORD'] %>
 
