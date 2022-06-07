@@ -11,7 +11,7 @@ RSpec.describe 'Api::V1::Projects', type: :request do
     end
   end
 
-  path '/api/v1/projects', focus: true do
+  path '/api/v1/projects' do
     get 'Project list' do
       tags 'Projects'
       consumes 'application/json'
