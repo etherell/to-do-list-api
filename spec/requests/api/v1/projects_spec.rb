@@ -126,10 +126,16 @@ RSpec.describe 'Api::V1::Projects', type: :request do
         let(:project) { create(:project, user: user) }
         let(:id) { project.id }
         let(:params) { { project: project_attributes } }
+        let!(:in_time_tasks) { create_list(:task, 3, deadline: Time.zone.now - 1.day, project: project) }
+        let!(:overdue_tasks) { create_list(:task, 1, deadline: Time.zone.now + 1.day, project: project) }
+
+        before do
+          project.tasks.each { |task| task.update(is_done: true) }
+        end
 
         run_test! do
           expect(response).to be_ok
-          expect(response).to match_json_schema('api/v1/project/create')
+          expect(response).to match_json_schema('api/v1/project/update')
         end
       end
 

@@ -13,4 +13,6 @@ class Task < ApplicationRecord
   acts_as_list scope: :project
 
   enum overdue_status: OVERDUE_STATUSES
+
+  scope :done, -> { where(is_done: true) }
 end
