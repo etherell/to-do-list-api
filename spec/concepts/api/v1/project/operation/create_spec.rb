@@ -11,7 +11,7 @@ RSpec.describe Api::V1::Project::Operation::Create do
 
       it 'operation is successed' do
         expect(result).to be_success
-        expect(result[:serializer]).to be_a(Api::V1::Project::Serializer::Show)
+        expect(result[:serializer]).to be_a(Api::V1::Project::Serializer::Create)
         expect(result[:semantic_success]).to eq(:created)
       end
 

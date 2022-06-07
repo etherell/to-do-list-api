@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :project do
-    title { FFaker::Lorem.unique.phrase }
+    title { FFaker::Lorem.phrase }
     user
   end
 end

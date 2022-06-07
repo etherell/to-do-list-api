@@ -9,7 +9,7 @@ ruby(File.read(File.join(File.dirname(__FILE__), '.ruby-version')).strip)
 gem 'carmen', '~> 1.1'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.6.4'
-gem 'rails', '~> 6.1.4.1'
+gem 'rails', '~> 6.1.5'
 gem 'sidekiq', '~> 6.4.0'
 
 # Trailblazer bundle
