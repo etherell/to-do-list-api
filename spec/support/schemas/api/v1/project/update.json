@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "in_time_percentage": {
+              "type": "number"
+            },
+            "overdue_percantage": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "title",
+            "in_time_percentage",
+            "overdue_percantage"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "attributes"
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}
