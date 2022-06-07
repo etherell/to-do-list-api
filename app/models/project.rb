@@ -9,9 +9,7 @@ class Project < ApplicationRecord
 
   pg_search_scope :search_by_title, against: [:title],
                                     using: {
-                                      tsearch: {
-                                        prefix: true,
-                                        tsvector_column: 'title_tsvector'
-                                      }
+                                      tsearch: { prefix: true, tsvector_column: 'title_tsvector' },
+                                      trigram: { threshold: 0.5 }
                                     }
 end

@@ -11,6 +11,39 @@ RSpec.describe 'Api::V1::Projects', type: :request do
     end
   end
 
+  path '/api/v1/projects', focus: true do
+    get 'Project list' do
+      tags 'Projects'
+      consumes 'application/json'
+      security [Bearer: {}]
+      parameter name: :Authorization, in: :header, type: :string
+      parameter name: :search, in: :query, schema: {
+        type: :string, example: FFaker::Lorem.word
+      }
+
+      response '200', 'Projects list returned' do
+        let(:Authorization) { create_token(entity: user, token_type: :access) }
+        let(:user) { create(:user) }
+        let(:search) { '' }
+        let!(:projects) { create_list(:project, 2, user: user) }
+
+        run_test! do
+          expect(response).to be_ok
+          expect(response).to match_json_schema('api/v1/project/index')
+        end
+      end
+
+      response '401', 'Unauthorized' do
+        let(:Authorization) { nil }
+        let(:search) { '' }
+
+        run_test! do
+          expect(response).to be_unauthorized
+        end
+      end
+    end
+  end
+
   path '/api/v1/projects' do
     post 'Creates Project' do
       tags 'Projects'
