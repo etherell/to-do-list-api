@@ -64,6 +64,7 @@ Metrics/MethodLength:
     - lib/macro/**/*
     - lib/active_admin/*
     - app/controllers/concerns/default_endpoint.rb
+    - app/controllers/graphql_controller.rb
 
 Lint/UnusedMethodArgument:
   Exclude:
@@ -87,6 +88,7 @@ Metrics/CyclomaticComplexity:
 Metrics/AbcSize:
   Exclude:
     - app/controllers/concerns/default_endpoint.rb
+    - app/controllers/graphql_controller.rb
     - app/admin/*.rb
 
 RSpec/MultipleExpectations:
@@ -118,3 +120,8 @@ RSpec/ScatteredSetup:
 
 RSpec/LetSetup:
   Enabled: false
+
+Naming/MethodParameterName:
+  Exclude:
+    - app/controllers/graphql_controller.rb
+

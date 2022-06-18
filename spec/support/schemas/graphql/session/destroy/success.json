@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "destroySession": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string"
+            },
+            "errors": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "required": [
+            "result",
+            "errors"
+          ]
+        }
+      },
+      "required": [
+        "destroySession"
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

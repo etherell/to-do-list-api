@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "createUser": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "createUser"
+      ]
+    },
+    "errors": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            },
+            "locations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "line": {
+                      "type": "integer"
+                    },
+                    "column": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "line",
+                    "column"
+                  ]
+                }
+              ]
+            },
+            "path": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "status": {
+              "type": "string"
+            },
+            "code": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "message",
+            "locations",
+            "path",
+            "status",
+            "code"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "data",
+    "errors"
+  ]
+}
