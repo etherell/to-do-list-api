@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Task < ApplicationRecord
+  include PgSearch::Model
+
+  multisearchable against: :description
+
   OVERDUE_STATUSES = { in_time: 0, overdue: 1 }.freeze
 
   belongs_to :project
