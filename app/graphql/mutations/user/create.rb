@@ -3,6 +3,7 @@
 module Mutations
   module User
     class Create < Mutations::BaseMutation
+      graphql_name 'createUser'
       description 'Creates new user'
 
       argument :username, String, required: true, prepare: ->(title, _ctx) { title.strip }

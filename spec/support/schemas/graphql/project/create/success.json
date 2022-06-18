@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "createProject": {
+          "type": "object",
+          "properties": {
+            "project": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "username": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "username"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "user"
+              ]
+            },
+            "errors": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "required": [
+            "project",
+            "errors"
+          ]
+        }
+      },
+      "required": [
+        "createProject"
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

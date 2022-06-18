@@ -5,6 +5,9 @@ module Mutations
     class Destroy < Mutations::BaseMutation
       include Lib::UserAuthenticatable
 
+      graphql_name 'destroySession'
+      description 'User sign out'
+
       field :result, String, null: true
       field :errors, [String], null: false
 

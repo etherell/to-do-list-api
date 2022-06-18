@@ -3,6 +3,7 @@
 module Mutations
   module Session
     class Create < Mutations::BaseMutation
+      graphql_name 'createSession'
       description 'User sign in'
 
       argument :username, String, required: true, prepare: ->(username, _ctx) { username.strip }
