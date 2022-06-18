@@ -14,6 +14,7 @@ gem 'sidekiq', '~> 6.4.0'
 
 # Trailblazer bundle
 gem 'dry-configurable', '0.12.1'
+gem 'dry-types', '~> 0.12.0'
 gem 'dry-validation', '0.11.1'
 gem 'reform', '~> 2.2.0', '>= 2.2.4'
 gem 'simple_endpoint', '~> 1.0.0'
@@ -47,6 +48,10 @@ gem 'acts_as_list', '~> 1.0', '>= 1.0.4'
 gem 'fx', '~> 0.6.2'
 gem 'pg_search', '~> 2.3'
 gem 'scenic', '~> 1.6'
+
+# GraphQL
+gem 'graphiql-rails', '~> 1.8'
+gem 'graphql', '~> 2.0', '>= 2.0.9'
 
 group :development, :test do
   gem 'bullet', '~> 6.1'

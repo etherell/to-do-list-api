@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  post "/graphql", to: "graphql#execute"
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
+
+  if Rails.env.development?
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+  end
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
