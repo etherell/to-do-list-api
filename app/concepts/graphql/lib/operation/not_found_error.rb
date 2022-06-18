@@ -5,7 +5,10 @@ module Graphql::Lib::Operation
     step :raise_not_found_error
 
     def raise_not_found_error(_ctx, model_name:, **)
-      raise GraphQL::ExecutionError.new("#{model_name} not found", options: { status: :not_found, code: 404 })
+      raise GraphQL::ExecutionError.new(
+        I18n.t('errors.not_found', model_name: model_name),
+        options: { status: :not_found, code: 404 }
+      )
     end
   end
 end

@@ -65,6 +65,7 @@ RSpec.configure do |config|
   config.include Helpers::ValidationTranslatesHelper
   config.include Helpers::ContractHelper
   config.include Helpers::SessionsHelper
+  config.include Helpers::GraphqlRequestHelpers
   config.mock_with :rspec do |mocks|
     mocks.allow_message_expectations_on_nil = true
   end

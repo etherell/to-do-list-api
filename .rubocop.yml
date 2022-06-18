@@ -88,6 +88,7 @@ Metrics/CyclomaticComplexity:
 Metrics/AbcSize:
   Exclude:
     - app/controllers/concerns/default_endpoint.rb
+    - app/controllers/graphql_controller.rb
     - app/admin/*.rb
 
 RSpec/MultipleExpectations:

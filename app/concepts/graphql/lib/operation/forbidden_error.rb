@@ -6,7 +6,7 @@ module Graphql::Lib::Operation
 
     def raise_forbidden_error(_ctx, **)
       raise GraphQL::ExecutionError.new(
-        'Please log in to access this page',
+        I18n.t('errors.forbidden'),
         options: { status: :forbidden, code: 403 }
       )
     end
