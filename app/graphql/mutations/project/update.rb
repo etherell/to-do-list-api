@@ -5,7 +5,7 @@ module Mutations
     class Update < Mutations::BaseMutation
       include Lib::UserAuthenticatable
 
-      graphql_name 'projectUpdate'
+      graphql_name 'updateProject'
       description 'Updates project'
 
       argument :title, String, required: true, prepare: ->(title, _ctx) { title.strip }

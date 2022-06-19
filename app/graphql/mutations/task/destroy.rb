@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 module Mutations
-  module Project
+  module Task
     class Destroy < Mutations::BaseMutation
       include Lib::UserAuthenticatable
 
-      graphql_name 'destroyProject'
-      description 'Destroys a project'
+      graphql_name 'destroyTask'
+      description 'Destroys a task'
 
       argument :id, ID, required: true
 
@@ -14,7 +14,7 @@ module Mutations
       field :errors, [String], null: false
 
       def resolve(id:)
-        Graphql::Project::Operation::Destroy.call(current_user: current_user, id: id)[:result]
+        Graphql::Task::Operation::Destroy.call(current_user: current_user, id: id)[:result]
       end
     end
   end

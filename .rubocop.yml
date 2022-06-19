@@ -24,7 +24,7 @@ Rails/SkipsModelValidations:
   AllowedMethods: ['update_all', 'increment!']
 
 Layout/LineLength:
-  Max: 120
+  Max: 125
 
 Naming/MethodName:
   Exclude:

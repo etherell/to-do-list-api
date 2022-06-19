@@ -32,14 +32,9 @@ RSpec.describe Graphql::Session::Operation::Create do
 
       context 'when user with user name does not exist' do
         let(:params) { attributes_for(:user) }
-        let(:error_attributes) do
-          { message: I18n.t('errors.not_found', model_name: 'User'), options: { status: :not_found, code: 404 } }
-        end
+        let(:model_name) { User.to_s }
 
-        it 'raises not found error' do
-          expect { result }.to raise_error(an_instance_of(GraphQL::ExecutionError)
-                                            .and(having_attributes(error_attributes)))
-        end
+        it_behaves_like 'a not found error'
       end
 
       context 'when wrong password' do
