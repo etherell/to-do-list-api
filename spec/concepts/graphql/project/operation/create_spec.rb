@@ -25,12 +25,8 @@ RSpec.describe Graphql::Project::Operation::Create do
     describe 'failure' do
       context 'when params are empty' do
         let(:params) {}
-        let(:error_attributes) { { options: { status: :unprocessable_entity, code: 422 } } }
 
-        it 'raises unprocessable error' do
-          expect { result }.to raise_error(an_instance_of(GraphQL::ExecutionError)
-                                            .and(having_attributes(error_attributes)))
-        end
+        it_behaves_like 'an unprocessable error'
       end
     end
   end

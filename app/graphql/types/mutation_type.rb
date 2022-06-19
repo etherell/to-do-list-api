@@ -8,5 +8,8 @@ module Types
     field :create_project, mutation: Mutations::Project::Create
     field :destroy_project, mutation: Mutations::Project::Destroy
     field :update_project, mutation: Mutations::Project::Update
+    field :create_task, mutation: Mutations::Task::Create
+    field :update_task, mutation: Mutations::Task::Update
+    field :destroy_task, mutation: Mutations::Task::Destroy
   end
 end

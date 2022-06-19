@@ -24,14 +24,9 @@ RSpec.describe Graphql::Project::Operation::Destroy do
     describe 'failure' do
       context 'when wrong project id' do
         let(:project_id) { SecureRandom.uuid }
-        let(:error_attributes) do
-          { message: I18n.t('errors.not_found', model_name: 'Project'), options: { status: :not_found, code: 404 } }
-        end
+        let(:model_name) { Project.to_s }
 
-        it 'raises not found error' do
-          expect { result }.to raise_error(an_instance_of(GraphQL::ExecutionError)
-                                            .and(having_attributes(error_attributes)))
-        end
+        it_behaves_like 'a not found error'
       end
     end
   end

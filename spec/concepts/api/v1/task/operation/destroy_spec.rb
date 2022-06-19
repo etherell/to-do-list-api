@@ -7,7 +7,6 @@ RSpec.describe Api::V1::Task::Operation::Destroy do
 
   describe '.call' do
     context 'when params task exists' do
-      let(:task_attributes) { attributes_for(:task) }
       let!(:task) { create(:task) }
       let(:id) { task.id }
 

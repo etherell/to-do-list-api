@@ -5,7 +5,7 @@ module Mutations
     class Create < Mutations::BaseMutation
       include Lib::UserAuthenticatable
 
-      graphql_name 'projectCreate'
+      graphql_name 'createProject'
       description 'Creates new project'
 
       argument :title, String, required: true, prepare: ->(title, _ctx) { title.strip }
