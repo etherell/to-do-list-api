@@ -11,5 +11,7 @@ module Types
     field :create_task, mutation: Mutations::Task::Create
     field :update_task, mutation: Mutations::Task::Update
     field :destroy_task, mutation: Mutations::Task::Destroy
+    field :create_comment, mutation: Mutations::Comment::Create
+    field :destroy_comment, mutation: Mutations::Comment::Destroy
   end
 end
