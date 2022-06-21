@@ -5,7 +5,7 @@ module Graphql::Project::Operation
     pass :set_relation
 
     def set_relation(ctx, current_user:, **)
-      ctx[:relation] = current_user.projects
+      ctx[:relation] = current_user.projects.lazy_preload(tasks: :comments)
     end
   end
 end

@@ -6,6 +6,18 @@ module ProjectShowSchema
       required(:project).schema do
         required(:id).filled(:str?)
         required(:title).filled(:str?)
+        required(:tasks).each do
+          required(:id).filled(:str?)
+          required(:description).filled(:str?)
+          required(:deadline).filled(:str?)
+          required(:position).filled(:int?)
+          required(:isDone).filled(:bool?)
+          required(:comments).each do
+            required(:id).filled(:str?)
+            required(:text).filled(:str?)
+            required(:image).filled(:str?)
+          end
+        end
       end
     end
   end

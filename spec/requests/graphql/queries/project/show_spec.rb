@@ -8,7 +8,19 @@ RSpec.describe 'Project', type: :request do
     "query {
       project(id: \"#{project_id}\") {
         title,
-        id
+        id,
+        tasks {
+          id,
+          description,
+          isDone,
+          deadline,
+          position,
+          comments {
+            id,
+            text,
+            image,
+          }
+        }
       }
     }"
   end

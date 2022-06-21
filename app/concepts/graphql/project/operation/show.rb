@@ -2,16 +2,16 @@
 
 module Graphql::Project::Operation
   class Show < ApplicationOperation
-    step :set_model_name
     step :set_model
-    fail Subprocess(Graphql::Lib::Operation::NotFoundError)
-
-    def set_model_name(ctx, **)
-      ctx[:model_name] = Project.to_s
-    end
+    fail :set_error_message
+    fail Macro::RaiseError(status: :not_found, message: :not_found_error)
 
     def set_model(ctx, current_user:, id:, **)
-      ctx[:model] = current_user.projects.find_by(id: id)
+      ctx[:model] = current_user.projects.lazy_preload(tasks: :comments).find_by(id: id)
+    end
+
+    def set_error_message(ctx, **)
+      ctx[:not_found_error] = I18n.t('errors.not_found', model_name: Project.to_s)
     end
   end
 end

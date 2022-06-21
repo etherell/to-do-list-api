@@ -3,7 +3,7 @@
 module Graphql::Session::Operation
   class Destroy < ApplicationOperation
     step :destroy_session
-    fail Subprocess(Graphql::Lib::Operation::UnauthorizedError)
+    fail Macro::RaiseError(status: :unauthorized, message: :unauthorized_error)
     pass :result
 
     def destroy_session(ctx, refresh_token:, **)

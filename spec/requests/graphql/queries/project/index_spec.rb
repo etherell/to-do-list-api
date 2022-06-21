@@ -1,17 +1,31 @@
 # frozen_string_literal: true
 
 RSpec.describe 'Projects list', type: :request do
+  let(:project) { create(:project, user: user) }
+  let(:tasks) { create_list(:task, 3, project: project) }
   let(:query) do
     "query {
       projects {
         title,
-        id
+        id,
+        tasks {
+          id,
+          description,
+          isDone,
+          deadline,
+          position,
+          comments {
+            id,
+            text,
+            image,
+          }
+        }
       }
     }"
   end
 
   before do
-    create_list(:project, 3, user: user)
+    tasks.each { |task| create(:comment, task: task) }
     graphql_post(query: query, headers: { 'Authorization': token })
   end
 

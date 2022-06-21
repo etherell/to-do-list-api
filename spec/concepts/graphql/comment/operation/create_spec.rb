@@ -14,7 +14,6 @@ RSpec.describe Graphql::Comment::Operation::Create do
       context 'when params are valid' do
         it 'operation is successed' do
           expect(result).to be_success
-          expect(result[:model_name]).to eq(Task.to_s)
           expect(result[:task]).to eq(task)
           expect(result[:model]).to be_a(Comment)
           expect(result[:result]).to eq({ comment: result[:model], errors: [] })
