@@ -19,7 +19,7 @@ RSpec.describe 'Create user session', type: :request do
 
     it 'success' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/session/destroy/success')
+      expect(response).to match_schema(SessionDestroySchema::Success)
     end
   end
 
@@ -30,7 +30,7 @@ RSpec.describe 'Create user session', type: :request do
 
     it 'returns unathorized error' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/session/destroy/unauthorized')
+      expect(response).to match_schema(SessionDestroySchema::Error)
     end
   end
 
@@ -41,7 +41,7 @@ RSpec.describe 'Create user session', type: :request do
 
     it 'returns unathorized error' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/session/destroy/unauthorized')
+      expect(response).to match_schema(SessionDestroySchema::Error)
     end
   end
 end

@@ -15,7 +15,6 @@ RSpec.describe Graphql::Task::Operation::Update do
       context 'when params are valid' do
         it 'operation is successed' do
           expect(result).to be_success
-          expect(result[:model_name]).to eq(model_name)
           expect(result[:model]).to eq(task)
           expect(result[:result]).to eq({ task: task, errors: [] })
         end

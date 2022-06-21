@@ -26,7 +26,7 @@ RSpec.describe 'Create user session', type: :request do
 
     it 'success' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/session/create/success')
+      expect(response).to match_schema(SessionCreateSchema::Success)
     end
   end
 
@@ -35,7 +35,7 @@ RSpec.describe 'Create user session', type: :request do
 
     it 'failed' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/session/create/unauthorized')
+      expect(response).to match_schema(SessionCreateSchema::Error)
     end
   end
 end

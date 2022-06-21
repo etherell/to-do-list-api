@@ -4,6 +4,7 @@ en:
     not_authorized: You're not authorized to perform this action
     forbidden: Please log in to access this page
     not_found: "%{model_name} not found"
+    unprocessable: Invalid input params
     session:
       wrong_credentials: Invalid username or password
       refresh_not_found: wrong_credentials

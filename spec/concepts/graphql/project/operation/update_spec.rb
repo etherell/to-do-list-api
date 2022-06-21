@@ -12,7 +12,6 @@ RSpec.describe Graphql::Project::Operation::Update do
     describe 'success' do
       it 'operation is successed' do
         expect(result).to be_success
-        expect(result[:model_name]).to eq('Project')
         expect(result[:model]).to eq(project)
         expect(result[:result]).to eq({ project: result[:model], errors: [] })
       end

@@ -1,14 +1,10 @@
 # frozen_string_literal: true
 
-module CommentCreateSchema
+module SessionDestroySchema
   Success = Dry::Validation.Schema do
     required(:data).schema do
-      required(:createComment).schema do
-        required(:comment).schema do
-          required(:id).filled(:str?)
-          required(:text).filled(:str?)
-          required(:image).filled(:str?)
-        end
+      required(:destroySession).schema do
+        required(:result).filled(:str?)
         required(:errors).value(:array?, :empty?)
       end
     end
@@ -16,7 +12,7 @@ module CommentCreateSchema
 
   Error = Dry::Validation.Schema do
     required(:data).schema do
-      required(:createComment).value(:none?)
+      required(:destroySession).value(:none?)
     end
     required(:errors).each do
       schema do

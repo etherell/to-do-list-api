@@ -5,7 +5,7 @@ RSpec.describe Graphql::Comment::Operation::Create do
   let(:params) { comment_attributes.merge(task_id: task_id) }
 
   describe '.call' do
-    let(:comment_attributes) { attributes_for(:comment) }
+    let(:comment_attributes) { attributes_for(:comment, :with_base_64_image) }
     let(:user) { task.project.user }
     let(:task) { create(:task) }
     let(:task_id) { task.id }
@@ -14,7 +14,6 @@ RSpec.describe Graphql::Comment::Operation::Create do
       context 'when params are valid' do
         it 'operation is successed' do
           expect(result).to be_success
-          expect(result[:model_name]).to eq(Task.to_s)
           expect(result[:task]).to eq(task)
           expect(result[:model]).to be_a(Comment)
           expect(result[:result]).to eq({ comment: result[:model], errors: [] })

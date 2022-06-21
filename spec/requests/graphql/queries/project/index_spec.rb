@@ -1,17 +1,31 @@
 # frozen_string_literal: true
 
 RSpec.describe 'Projects list', type: :request do
+  let(:project) { create(:project, user: user) }
+  let(:tasks) { create_list(:task, 3, project: project) }
   let(:query) do
     "query {
       projects {
         title,
-        id
+        id,
+        tasks {
+          id,
+          description,
+          isDone,
+          deadline,
+          position,
+          comments {
+            id,
+            text,
+            image,
+          }
+        }
       }
     }"
   end
 
   before do
-    create_list(:project, 3, user: user)
+    tasks.each { |task| create(:comment, task: task) }
     graphql_post(query: query, headers: { 'Authorization': token })
   end
 
@@ -21,7 +35,7 @@ RSpec.describe 'Projects list', type: :request do
 
     it 'success' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/project/index/success')
+      expect(response).to match_schema(ProjectIndexchema::Success)
     end
   end
 
@@ -31,7 +45,7 @@ RSpec.describe 'Projects list', type: :request do
 
     it 'failed' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/project/index/unauthorized')
+      expect(response).to match_schema(ProjectIndexchema::Error)
     end
   end
 end

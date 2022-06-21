@@ -24,7 +24,7 @@ RSpec.describe 'Destroy project', type: :request do
   context 'when input is valid' do
     it 'returns success response' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/project/destroy/success')
+      expect(response).to match_schema(ProjectDestroySchema::Success)
     end
   end
 
@@ -33,7 +33,7 @@ RSpec.describe 'Destroy project', type: :request do
 
     it 'returns not found error' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/project/destroy/not_found')
+      expect(response).to match_schema(ProjectDestroySchema::Error)
     end
   end
 
@@ -42,7 +42,7 @@ RSpec.describe 'Destroy project', type: :request do
 
     it 'return unauthorized error' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/project/destroy/unauthorized')
+      expect(response).to match_schema(ProjectDestroySchema::Error)
     end
   end
 end

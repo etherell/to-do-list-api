@@ -14,7 +14,6 @@ RSpec.describe Graphql::Comment::Operation::Destroy do
       context 'when params comment exists' do
         it 'operation is successed' do
           expect(result).to be_success
-          expect(result[:model_name]).to eq(Comment.to_s)
           expect(result[:model]).to eq(comment)
           expect(result[:result]).to eq({ result: :completed, errors: [] })
         end

@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
-module CommentCreateSchema
+module ProjectUpdateSchema
   Success = Dry::Validation.Schema do
     required(:data).schema do
-      required(:createComment).schema do
-        required(:comment).schema do
+      required(:updateProject).schema do
+        required(:project).schema do
           required(:id).filled(:str?)
-          required(:text).filled(:str?)
-          required(:image).filled(:str?)
+          required(:title).filled(:str?)
         end
         required(:errors).value(:array?, :empty?)
       end
@@ -16,7 +15,7 @@ module CommentCreateSchema
 
   Error = Dry::Validation.Schema do
     required(:data).schema do
-      required(:createComment).value(:none?)
+      required(:updateProject).value(:none?)
     end
     required(:errors).each do
       schema do

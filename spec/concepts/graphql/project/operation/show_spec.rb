@@ -13,7 +13,6 @@ RSpec.describe Graphql::Project::Operation::Show do
 
         it 'operation is successed' do
           expect(result).to be_success
-          expect(result[:model_name]).to eq('Project')
           expect(result[:model]).to eq(project)
         end
       end

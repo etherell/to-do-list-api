@@ -3,14 +3,16 @@
 RSpec.describe 'Create comment', type: :request do
   let(:task) { create(:task) }
   let(:user) { task.project.user }
-  let(:comment_attributes) { attributes_for(:comment) }
+  let(:comment_attributes) { attributes_for(:comment, :with_base_64_image) }
   let(:comment_text) { comment_attributes[:text] }
+  let(:comment_image) { comment_attributes[:image] }
   let(:task_id) { task.id }
   let(:token) { create_token(entity: user, token_type: :access) }
   let(:query) do
     "mutation {
       createComment(input: {
         text: \"#{comment_text}\",
+        image: \"#{comment_image}\",
         taskId: \"#{task_id}\"
       }) {
         comment {

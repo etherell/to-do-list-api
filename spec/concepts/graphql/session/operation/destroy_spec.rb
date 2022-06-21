@@ -18,7 +18,7 @@ RSpec.describe Graphql::Session::Operation::Destroy do
 
     context 'when token is invalid or empty' do
       let(:refresh_token) { nil }
-      let(:error_message) { 'Nil JSON web token' }
+      let(:error_message) { I18n.t('errors.not_authorized') }
       let(:error_attributes) { { message: error_message, options: { status: :unauthorized, code: 401 } } }
 
       it 'raises unauthorized error' do

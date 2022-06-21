@@ -6,7 +6,7 @@ module Graphql::Project::Operation
     step Contract::Build(constant: Graphql::Project::Contract::Save)
     step Contract::Validate()
     step Contract::Persist()
-    fail Subprocess(Graphql::Lib::Operation::UnprocessableEntityError)
+    fail Macro::RaiseError(status: :unprocessable_entity)
     pass :set_result
 
     def set_model(ctx, current_user:, **)

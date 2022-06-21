@@ -13,7 +13,6 @@ RSpec.describe Graphql::Task::Operation::Destroy do
       context 'when params task exists' do
         it 'operation is successed' do
           expect(result).to be_success
-          expect(result[:model_name]).to eq(model_name)
           expect(result[:model]).to eq(task)
           expect(result[:result]).to eq({ result: :completed, errors: [] })
         end
