@@ -5,7 +5,7 @@ RSpec.describe Graphql::Comment::Operation::Create do
   let(:params) { comment_attributes.merge(task_id: task_id) }
 
   describe '.call' do
-    let(:comment_attributes) { attributes_for(:comment) }
+    let(:comment_attributes) { attributes_for(:comment, :with_base_64_image) }
     let(:user) { task.project.user }
     let(:task) { create(:task) }
     let(:task_id) { task.id }

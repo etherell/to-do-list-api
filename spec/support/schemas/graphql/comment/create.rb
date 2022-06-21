@@ -7,7 +7,7 @@ module CommentCreateSchema
         required(:comment).schema do
           required(:id).filled(:str?)
           required(:text).filled(:str?)
-          optional(:image).maybe(:str?)
+          required(:image).filled(:str?)
         end
         required(:errors).value(:array?, :empty?)
       end

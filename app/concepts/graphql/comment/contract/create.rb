@@ -8,18 +8,10 @@ module Graphql::Comment::Contract
     validation :default do
       configure do
         config.namespace = :comment
-
-        def valid_image?(value)
-          return true unless value.content_type
-          return false unless value.content_type.split('/').last.in?(ImageUploader.new.extension_allowlist)
-          return false if value.size > Constants::Shared::IMAGE_MAX_SIZE
-
-          true
-        end
       end
 
       required(:text).filled(:str?)
-      optional(:image).maybe(:valid_image?)
+      optional(:image).maybe(:str?)
     end
 
     validation :size, if: :default do

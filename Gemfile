@@ -29,6 +29,7 @@ gem 'pagy', '~> 3.11'
 
 # Uploading
 gem 'carrierwave', '~> 2.0'
+gem 'carrierwave-base64', '~> 2.10'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
