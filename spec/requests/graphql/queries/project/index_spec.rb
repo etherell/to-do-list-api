@@ -21,7 +21,7 @@ RSpec.describe 'Projects list', type: :request do
 
     it 'success' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/project/index/success')
+      expect(response).to match_schema(ProjectIndexchema::Success)
     end
   end
 
@@ -31,7 +31,7 @@ RSpec.describe 'Projects list', type: :request do
 
     it 'failed' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/project/index/unauthorized')
+      expect(response).to match_schema(ProjectIndexchema::Error)
     end
   end
 end

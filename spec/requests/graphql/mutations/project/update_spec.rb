@@ -33,7 +33,7 @@ RSpec.describe 'Update project', type: :request do
   context 'when input is valid' do
     it 'returns success response' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/project/update/success')
+      expect(response).to match_schema(ProjectUpdateSchema::Success)
     end
   end
 
@@ -42,7 +42,7 @@ RSpec.describe 'Update project', type: :request do
 
     it 'returns unprocessable error' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/project/update/unprocessable')
+      expect(response).to match_schema(ProjectUpdateSchema::Error)
     end
   end
 
@@ -51,7 +51,7 @@ RSpec.describe 'Update project', type: :request do
 
     it 'returns not found error' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/project/update/not_found')
+      expect(response).to match_schema(ProjectUpdateSchema::Error)
     end
   end
 
@@ -60,7 +60,7 @@ RSpec.describe 'Update project', type: :request do
 
     it 'return unauthorized error' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/project/update/unauthorized')
+      expect(response).to match_schema(ProjectUpdateSchema::Error)
     end
   end
 end

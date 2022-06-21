@@ -30,7 +30,7 @@ RSpec.describe 'Create project', type: :request do
   context 'when input is valid' do
     it 'returns success response' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/project/create/success')
+      expect(response).to match_schema(ProjectCreateSchema::Success)
     end
   end
 
@@ -39,7 +39,7 @@ RSpec.describe 'Create project', type: :request do
 
     it 'returns unprocessable error' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/project/create/unprocessable')
+      expect(response).to match_schema(ProjectCreateSchema::Error)
     end
   end
 
@@ -48,7 +48,7 @@ RSpec.describe 'Create project', type: :request do
 
     it 'return unauthorized error' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/project/create/unauthorized')
+      expect(response).to match_schema(ProjectCreateSchema::Error)
     end
   end
 end

@@ -28,7 +28,7 @@ RSpec.describe 'Create user', type: :request do
 
     it 'success' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/user/create/success')
+      expect(response).to match_schema(UserCreateSchema::Success)
     end
   end
 
@@ -38,7 +38,7 @@ RSpec.describe 'Create user', type: :request do
 
     it 'failed' do
       expect(response).to be_ok
-      expect(response).to match_json_schema('graphql/user/create/unprocessable')
+      expect(response).to match_schema(UserCreateSchema::Error)
     end
   end
 end
